@@ -3,7 +3,7 @@
 @section("titulo", "Lista toros")
 @section('main-content')
 <div class="row">
-  <section class="content">
+  <section class="content card p-4">
       <div class="col-md-12 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
@@ -23,7 +23,7 @@
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
                   <th>Peso al Saltar</th>
-                  <th>Desendencias Provadas</th>
+                  <th>Hijas Provadas</th>
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
@@ -37,7 +37,7 @@
                     <td>{{$toro->peso_nacim}}</td>
                     <td>{{$toro->peso_destete}}</td>
                     <td>{{$toro->peso_saltar}}</td>
-                    <td>{{$toro->descendencia_provadas}}</td>
+                    <td>{{$toro->hijas_provadas}}</td>
                     <td>{{$toro->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('TorosController@edit', $toro->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>

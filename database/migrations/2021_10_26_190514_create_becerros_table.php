@@ -16,7 +16,8 @@ class CreateBecerrosTable extends Migration
         Schema::create('becerros', function (Blueprint $table) {
             $table->increments('id');
             $table->string('num_registro');
-            $table->string('nombre_becerros');
+            $table->string('nombre_becerro');
+            $table->integer('edad_becerro');
             $table->date('fecha_nacim');
             $table->float('peso_nacim');
             $table->float('peso_destete');

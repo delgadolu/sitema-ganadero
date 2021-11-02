@@ -68,25 +68,22 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='form-layouts' ? 'open' : '' }}" href="{{route('form-layouts')}}">
+                <a class="{{ Route::currentRouteName()=='Vacas.index' ? 'open' : '' }}" href="{{route('Vacas.index')}}">
                     <span class="item-name">Vacas</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='form-input-group' ? 'open' : '' }}" href="{{route('form-input-group')}}">
-                    <i class="nav-icon i-Receipt-4"></i>
                     <span class="item-name">Becerros</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='form-validation' ? 'open' : '' }}" href="{{route('form-validation')}}">
-                    <i class="nav-icon i-Close-Window"></i>
                     <span class="item-name">Novillas</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='form-validation' ? 'open' : '' }}" href="{{route('form-validation')}}">
-                    <i class="nav-icon i-Close-Window"></i>
                     <span class="item-name">Toretes</span>
                 </a>
             </li>
@@ -101,6 +98,11 @@
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='type_user.index' ? 'open' : '' }}" href="{{route('type_user.index')}}">
                     <span class="item-name">Tipos de Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='Tipo_Animal.index' ? 'open' : '' }}" href="{{route('Tipo_Animal.index')}}">
+                    <span class="item-name">Tipo de Animal</span>
                 </a>
             </li>
             <li class="nav-item">

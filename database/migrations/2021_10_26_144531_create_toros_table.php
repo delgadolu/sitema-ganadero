@@ -22,7 +22,7 @@ class CreateTorosTable extends Migration
             $table->float('peso_nacim');
             $table->float('peso_destete');
             $table->float('peso_saltar');
-            $table->float('desendencia_provadas');
+            $table->float('hijas_provadas');
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
             //$table->foreignId('id_tipo')->constrained('tipo_animal')->onDelete('cascade')->onUpdate('cascade');

@@ -20,9 +20,10 @@ class CreateVacasTable extends Migration
             $table->date('fecha_nacim');
             $table->float('peso_nacim');
             $table->float('peso_destete');
-            $table->bigInteger('edad_servi');
+            $table->Integer('edad_servi');
             $table->float('peso_primer_servi');
-            $table->bigInteger('num_partos');
+            $table->Integer('num_partos');
+            $table->float('hijas_provadas');
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
             //$table->foreignId('id_tipo')->constrained('tipo_animal')->onDelete('cascade')->onUpdate('cascade'); 

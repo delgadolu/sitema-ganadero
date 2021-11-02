@@ -39,27 +39,26 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Fecha de Nacimiento</label>
-										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm">
+										<input type="date" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm">
 									</div>
 								</div>
 
 							</div>
 							<div class="form-group">
-								<label class="label">Nombre</label>
-								<div name="nombre_toro" id="nombre_toro" class="form-control input-sm">
-								</div>
+								<label class="label">Nombre del Toro</label>
+								<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm">
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Edad toro</label>
+										<label class="label">Edad del Toro</label>
 										<input type="text" name="edad_toro" id="edad_toro" class="form-control input-sm">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Peso Al Nacimiento</label>
 									<div class="form-group">
-										<input type="text" name="peso_nacin" id="peso_nacin" class="form-control input-sm" >
+										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
 									</div>
 								</div>
 							</div>
@@ -80,13 +79,13 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Desendencia Provada</label>
-										<input type="text" name="desendencia_provadas" id="desendencia_provadas" class="form-control input-sm">
+										<label class="label">Hijas Provadas</label>
+										<input type="text" name="hijas_provadas" id="desendencia_provadas" class="form-control input-sm">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Tipo de Animal</label>
-									<select class="form-control" aria-label="tipo_animal">
+									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
 										<option value="1">Animal de Leche</option>
 										<option value="2">Animal de Carne</option>

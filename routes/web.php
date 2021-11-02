@@ -15,7 +15,10 @@ Route::get('/', function () {
     return view('dashboard.dashboardv1');
 });
 Route::resource('type_user', 'TypeUsersController');
+Route::resource('Tipo_Animal', 'TipoAnimalController');
 Route::resource('toros', 'TorosController');
+Route::resource('Vacas', 'VacasController');
+Route::resource('Becerros', 'BecerrosController');
 // TypeUaeer
 //Route::view('type_user', 'type_user.type_user_index')->name('TypeUser');
 // Route::view('/', 'starter')->name('starter');

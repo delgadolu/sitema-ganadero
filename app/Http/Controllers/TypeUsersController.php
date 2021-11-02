@@ -79,6 +79,6 @@ class TypeUsersController extends Controller
     public function destroy(TypeUser $typeUser)
     {
         $typeUser->delete();
-        return redirect()->route("type_user.index")->with(["mensaje" => "Tipo de Usuario eliminado",]);
+        return redirect()->route("type_user.index")->with(["mensaje" => "Tipo de Usuario eliminado"]);
     }
 }

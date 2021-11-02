@@ -21,49 +21,73 @@
  
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nuevo Libro</h3>
+					<h3 class="panel-title">Nuevo Toro</h3>
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('libro.update',$libro->id) }}"  role="form">
+						<form method="POST" action="{{ route('Toros.update',$Toros->id) }}"  role="form">
 							{{ csrf_field() }}
 							<input name="_method" type="hidden" value="PATCH">
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="nombre" id="nombre" class="form-control input-sm" value="{{$libro->nombre}}">
+										<input type="text" name="num_registro" id="num_registro" class="form-control input-sm" value="{{$Toros->num_registro}}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="npagina" id="npagina" class="form-control input-sm" value="{{$libro->npagina}}">
+										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm" value="{{$Toros->fecha_nacim}}">
 									</div>
 								</div>
-							</div>
- 
-							<div class="form-group">
-								<textarea name="resumen" class="form-control input-sm"  placeholder="Resumen">{{$libro->resumen}}</textarea>
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="edicion" id="edicion" class="form-control input-sm" value="{{$libro->edicion}}">
+										<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm" value="{{$Toros->edad_toro}}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="precio" id="precio" class="form-control input-sm" value="{{$libro->precio}}">
+										<input type="text" name="edad_toro" id="edad_toro" class="form-control input-sm" value="{{$Toros->edad_toro}}">
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<textarea name="autor" class="form-control input-sm" placeholder="Autor">{{$libro->autor}}</textarea>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" value="{{$Toros->peso_nacim}}">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" value="{{$Toros->peso_destete}}">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="peso_saltar" id="peso_saltar" class="form-control input-sm" value="{{$Toros->peso_saltar}}">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="hijas_provadas" id="hijas_provadas" class="form-control input-sm" value="{{$Toros->hijas_provadas}}">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="tipo_animal_id" id="tipo_animal_id" class="form-control input-sm" value="{{$Toros->tipo_animal_id}}">
+									</div>
+								</div>
 							</div>
 							<div class="row">
  
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<input type="submit"  value="Actualizar" class="btn btn-success btn-block">
-									<a href="{{ route('libro.index') }}" class="btn btn-info btn-block" >Atrás</a>
+									<a href="{{ route('Toros.index') }}" class="btn btn-info btn-block" >Atrás</a>
 								</div>	
  
 							</div>
