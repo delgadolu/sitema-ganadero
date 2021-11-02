@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='form-input-group' ? 'open' : '' }}" href="{{route('form-input-group')}}">
+                <a class="{{ Route::currentRouteName()=='becerros.index' ? 'open' : '' }}" href="{{route('becerros.index')}}">
                     <span class="item-name">Becerros</span>
                 </a>
             </li>

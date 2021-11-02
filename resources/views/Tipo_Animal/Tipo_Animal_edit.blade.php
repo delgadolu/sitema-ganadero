@@ -9,8 +9,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label">Nombre</label>
-                    <input required value="{{$Tipo_Animal->descripcion}}" autocomplete="off" name="descripcion" class="form-control"
-                           type="text" placeholder="Nombre">
+                    <input required value="{{$Tipo_Animal->descripcion}}" autocomplete="off" name="descripcion" class="form-control" type="text">
                 </div>
                 <button class="btn btn-success">Guardar</button>
                 <a class="btn btn-primary" href="{{route("Tipo_Animal.index")}}">Volver</a>

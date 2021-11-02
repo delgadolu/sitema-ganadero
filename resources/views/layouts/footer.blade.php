@@ -4,20 +4,16 @@
                 <div class="row">
                     <div class="col-md-9">
                         <p><strong>Software Ganadero </strong></p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero 
-                            sunt.
-                        </p>
+                        <p> Control y Calidad</p>
                     </div>
                 </div>
                 <div class="footer-bottom border-top pt-3 d-flex flex-column flex-sm-row align-items-center">
-                    <a class="btn btn-primary text-white btn-rounded" href="https://themeforest.net/user/mh_rafi" target="_blank">Buy
-            Gull HTML</a>
                     <span class="flex-grow-1"></span>
                     <div class="d-flex align-items-center">
                         <img class="logo" src="{{asset('assets/images/logo.png')}}" alt="">
                         <div>
-                            <p class="m-0">&copy; 2018 Gull HTML</p>
-                            <p class="m-0">All rights reserved</p>
+                            <p class="m-0">&copy; 2021 Francisco Gamboa</p>
+                            <p class="m-0">Todos los derechos reservados</p>
                         </div>
                     </div>
                 </div>

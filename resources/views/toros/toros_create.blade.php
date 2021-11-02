@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 @extends('layouts.master')
 @section('page-css')
 @section("titulo", "Registrar Toros")
@@ -37,9 +39,9 @@
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
+									<div class="form-group" id='datetimepicker'>
 										<label class="label">Fecha de Nacimiento</label>
-										<input type="date" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm">
+										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker" >
 									</div>
 								</div>
 
@@ -87,9 +89,9 @@
 									<label class="label">Tipo de Animal</label>
 									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
-										<option value="1">Animal de Leche</option>
-										<option value="2">Animal de Carne</option>
-										<option value="3">Animal Doble proposito</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
@@ -107,4 +109,15 @@
 		</div>
 	</section>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script type="text/javascript">
+        $(function() {
+           $('#datetimepicker').datetimepicker();
+        });
+    </script>   
 @endsection
+

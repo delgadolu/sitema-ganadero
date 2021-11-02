@@ -19,7 +19,7 @@
                 <tbody>
                 @foreach($Tipo_Animal as $value)
                     <tr>
-                        <td>{{$Tipo_Animal->description}}</td>
+                        <td>{{$value->descripcion}}</td>
                         <td>
                             <a class="btn btn-info" href="{{route("Tipo_Animal.edit",[$value])}}">
                                 <i class="nav-icon i-Pen-5"></i> 

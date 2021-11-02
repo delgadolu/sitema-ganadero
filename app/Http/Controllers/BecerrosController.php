@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Becerros;
 use Illuminate\Http\Request;
 
 class BecerrosController extends Controller
@@ -15,7 +16,7 @@ class BecerrosController extends Controller
     {
         //
         $becerros = Becerros::orderBy('id','DESC')->paginate(3);
-        return view('Becerros.Becerros_index',compact('Becerros')); 
+        return view('Becerros.Becerros_index',compact('becerros')); 
     }
 
     /**

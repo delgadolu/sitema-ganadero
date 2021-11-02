@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Toros;
+use App\TipoAnimal;
 use Illuminate\Http\Request;
-
 class TorosController extends Controller
 {
     /**
@@ -25,8 +25,11 @@ class TorosController extends Controller
      */
     public function create()
     {
-        //
-        return view('toros.toros_create');
+        $tipoAnimal = TipoAnimal::all();
+
+        return view('toros.toros_create', [
+            'tipoAnimal' => $tipoAnimal
+        ]);
     }
 
     /**

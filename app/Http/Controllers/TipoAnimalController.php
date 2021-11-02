@@ -14,7 +14,6 @@ class TipoAnimalController extends Controller
      */
     public function index()
     {
-        //
         $tipoAnimal = TipoAnimal::all();
 
         return view('Tipo_Animal.Tipo_Animal_index', [
@@ -29,7 +28,6 @@ class TipoAnimalController extends Controller
      */
     public function create()
     {
-        //
         return view('Tipo_Animal.Tipo_Animal_create');
     }
 
@@ -41,8 +39,7 @@ class TipoAnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $Tipo_Animal = new Tipo_Animal($request->input());
+        $Tipo_Animal = new TipoAnimal($request->input());
         $Tipo_Animal->saveOrFail();
         return redirect()->route('Tipo_Animal.index')->with(['mensaje' => 'Tipo de Animal creado']);
     }
@@ -54,9 +51,8 @@ class TipoAnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo_Animal $Tipo_Animal)
+    public function edit(TipoAnimal $Tipo_Animal)
     {
-        //
        return view("Tipo_Animal.Tipo_Animal_edit", ["Tipo_Animal" => $Tipo_Animal]);
     }
 
@@ -67,9 +63,8 @@ class TipoAnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tipo_Animal $Tipo_Animal)
+    public function update(Request $request, TipoAnimal $Tipo_Animal)
     {
-        //
          $Tipo_Animal->fill($request->input())->saveOrFail();
         return redirect()->route("Tipo_Animal.index")->with(["mensaje" => "Tipo de Animal actualizado"]);
     }
@@ -80,10 +75,9 @@ class TipoAnimalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tipo_Animal $Tipo_Animal)
+    public function destroy(TipoAnimal $Tipo_Animal)
     {
-        //
-        $typeUser->delete();
+        $Tipo_Animal->delete();
         return redirect()->route("Tipo_Animal.index")->with(["mensaje" => "Tipo de Animal eliminado"]);
     }
 }

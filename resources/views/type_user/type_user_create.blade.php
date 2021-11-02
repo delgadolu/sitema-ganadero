@@ -9,8 +9,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="label">Nombre</label>
-                    <input required autocomplete="off" name="description" class="form-control"
-                           type="text" placeholder="description">
+                    <input required autocomplete="off" name="description" class="form-control"  type="text">
                 </div>
 
                 <button class="btn btn-success">Guardar</button>

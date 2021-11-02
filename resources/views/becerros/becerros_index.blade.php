@@ -10,7 +10,7 @@
             <div class="pull-left"><h3>Lista de Becerros</h3></div>
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
-                <a href="{{ route('Becerros.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="{{ route('becerros.create') }}" class="btn btn-primary" >Agregar</a>
               </div>
             </div>
             <div class="table-container">
@@ -27,21 +27,21 @@
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
-                  @if($Becerros->count())  
-                  @foreach($Becerros as $becerro)  
+                  @if($becerros->count())  
+                  @foreach($becerros as $becerro)  
                   <tr>
-                    <td>{{$Becerros->num_registro}}</td>
-                    <td>{{$Becerros->fecha_nacim}}</td>
-                    <td>{{$Becerros->nombre_becerro}}</td>
-                    <td>{{$Becerros->edad_becerro}}</td>
-                    <td>{{$Becerros->peso_nacim}}</td>
-                    <td>{{$Becerros->peso_destete}}</td>
-                    <td>{{$Becerros->vaca_id}}</td>
-                    <td>{{$Becerros->toro_id}}</td>
-                    <td>{{$Becerros->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrosController@edit', $Becerros->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td>{{$becerro->num_registro}}</td>
+                    <td>{{$becerro->fecha_nacim}}</td>
+                    <td>{{$becerro->nombre_becerro}}</td>
+                    <td>{{$becerro->edad_becerro}}</td>
+                    <td>{{$becerro->peso_nacim}}</td>
+                    <td>{{$becerro->peso_destete}}</td>
+                    <td>{{$becerro->vaca_id}}</td>
+                    <td>{{$becerro->toro_id}}</td>
+                    <td>{{$becerro->tipo_animal_id}}</td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrosController@edit', $becerro->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>
-                      <form action="{{action('BecerrosController@destroy', $Becerros->id)}}" method="post">
+                      <form action="{{action('BecerrosController@destroy', $becerro->id)}}" method="post">
                       {{csrf_field()}}
                       <input name="_method" type="hidden" value="DELETE">
     
