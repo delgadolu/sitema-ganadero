@@ -12,8 +12,7 @@
                 <thead>
                 <tr>
                     <th>Descripcion</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th colspan="2">Acciones</th>
                 </tr>
                 </thead>
                 <tbody>

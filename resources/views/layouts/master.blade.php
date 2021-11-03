@@ -5,33 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!-- CSRF Token -->
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Software Ganadero </title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
-@yield('before-css')
+    @yield('before-css')
     {{-- theme css --}}
-<link rel="stylesheet" href="{{mix('assets/styles/css/themes/lite-blue.min.css')}}">
- <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
- {{-- page specific css --}}
- @yield('page-css')
+    <link rel="stylesheet" href="{{mix('assets/styles/css/themes/lite-blue.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
+    {{-- page specific css --}}
+    @yield('page-css')
 </head>
 
 <body>
     <div class="app-admin-wrap">
 
-      @include('layouts.header-menu')
-      {{-- end of header menu --}}
+        @include('layouts.header-menu')
+        {{-- end of header menu --}}
 
 
 
-       @include('layouts.sidebar')
-       {{-- end of left sidebar --}}
+        @include('layouts.sidebar')
+        {{-- end of left sidebar --}}
 
         <!-- ============ Body content start ============= -->
         <div class="main-content-wrap sidenav-open d-flex flex-column">
 
-           @yield('main-content')
+            @yield('main-content')
 
             @include('layouts.footer')
         </div>
@@ -40,11 +40,11 @@
     <!--=============== End app-admin-wrap ================-->
 
     <!-- ============ Search UI Start ============= -->
-  @include('layouts.search')
+    @include('layouts.search')
     <!-- ============ Search UI End ============= -->
 
-{{-- common js --}}
-<script src="{{mix('assets/js/common-bundle-script.js')}}"></script>
+    {{-- common js --}}
+    <script src="{{mix('assets/js/common-bundle-script.js')}}"></script>
     {{-- page specific javascript --}}
     @yield('page-js')
 
@@ -56,6 +56,7 @@
     {{-- <script src="{{mix('assets/js/laravel/app.js')}}"></script> --}}
 
     @yield('bottom-js')
+    @yield('scripts')
 </body>
 
 </html>

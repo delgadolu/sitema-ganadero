@@ -39,7 +39,7 @@ class VacasController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_pri_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
 
         Vacas::create($request->all());
         return redirect()->route('Vacas.index')->with('success','Registro creado satisfactoriamente');
@@ -81,7 +81,7 @@ class VacasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_pri_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
  
         Vacas::find($id)->update($request->all());
         return redirect()->route('Vacas.index')->with('success','Registro actualizado satisfactoriamente');

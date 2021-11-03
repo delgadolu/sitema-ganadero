@@ -25,6 +25,7 @@
                   <th>Peso al Saltar</th>
                   <th>Hijas Provadas</th>
                   <th>Tipo de Animal</th>
+                  <th colspan="2">Acciones</th>
                 </thead>
                 <tbody>
                   @if($toros->count())  
@@ -39,13 +40,13 @@
                     <td>{{$toro->peso_saltar}}</td>
                     <td>{{$toro->hijas_provadas}}</td>
                     <td>{{$toro->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('TorosController@edit', $toro->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('TorosController@edit', $toro->id)}}" > <i class="nav-icon i-Pen-5"></i> </span></a></td>
                     <td>
                       <form action="{{action('TorosController@destroy', $toro->id)}}" method="post">
                       {{csrf_field()}}
                       <input name="_method" type="hidden" value="DELETE">
     
-                      <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                      <button class="btn btn-danger btn-xs" type="submit"><i class="nav-icon i-Close-Window"></i> </button>
                     </td>
                   </tr>
                   @endforeach 
