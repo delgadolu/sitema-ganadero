@@ -10,10 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('dashboard.dashboardv1');
+    return view('auth.login');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('type_user', 'TypeUsersController');
 Route::resource('Tipo_Animal', 'TipoAnimalController');
 Route::resource('toros', 'TorosController');
@@ -73,6 +76,7 @@ Route::view('forms/form-editor', 'forms.form-editor')->name('form-editor');
 Route::view('datatables/basic-tables', 'datatables.basic-tables')->name('basic-tables');
 
 // sessions
+
 Route::view('sessions/signIn', 'sessions.signIn')->name('signIn');
 Route::view('sessions/signUp', 'sessions.signUp')->name('signUp');
 Route::view('sessions/forgot', 'sessions.forgot')->name('forgot');
@@ -81,3 +85,5 @@ Route::view('sessions/forgot', 'sessions.forgot')->name('forgot');
 Route::view('others/notFound', 'others.notFound')->name('notFound');
 Route::view('others/user-profile', 'others.user-profile')->name('user-profile');
 Route::view('others/starter', 'others.starter')->name('starter');
+
+
