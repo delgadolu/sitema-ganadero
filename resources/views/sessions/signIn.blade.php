@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-6 text-center " style="background-size: cover;background-image: url({{asset('assets/images/photo-long-3.jpg')}}">
                         <div class="pr-3 auth-right">
-                            <a class="btn btn-rounded btn-outline-primary btn-outline-email btn-block btn-icon-text" href="signup.html">
+                            <a class="btn btn-rounded btn-outline-primary btn-outline-email btn-block btn-icon-text" href="{{ route('register') }}">
                                 <i class="i-Mail-with-At-Sign"></i> Sign up with Email
                             </a>
                             <a class="btn btn-rounded btn-outline-primary btn-outline-google btn-block btn-icon-text">
