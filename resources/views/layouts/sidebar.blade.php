@@ -101,7 +101,6 @@
         <ul class="childNav" data-parent="process">
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='invoice' ? 'open' : '' }}" href="{{route('invoice')}}">
-                    <i class="nav-icon i-Add-File"></i>
                     <span class="item-name">Usuarios</span>
                 </a>
             </li>

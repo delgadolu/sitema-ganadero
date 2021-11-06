@@ -30,6 +30,7 @@ Route::resource('finca', 'FincaController');
 Route::resource('sanidad', 'SanidadController');
 Route::resource('gestacion', 'GestacionController');
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // TypeUaeer
 //Route::view('type_user', 'type_user.type_user_index')->name('TypeUser');
 // Route::view('/', 'starter')->name('starter');
