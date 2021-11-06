@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Becerros;
+use App\Nobillas;
 use App\Vacas;
 use App\Toros;
 use Illuminate\Http\Request;
 
-class BecerrosController extends Controller
+class NobillasController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -17,8 +17,8 @@ class BecerrosController extends Controller
     public function index()
     {
         //
-        $becerros = Becerros::orderBy('id','DESC')->paginate(3);
-        return view('becerros.becerros_index',compact('becerros')); 
+        $nobillas = Nobillas::orderBy('id','DESC')->paginate(3);
+        return view('nobillas.nobillas_index',compact('nobillas')); 
     }
 
     /**
@@ -31,7 +31,7 @@ class BecerrosController extends Controller
         //
         $vacas = Vacas::all();
         $toros = Toros::all();
-        return view('becerros.becerros_create',['vacas' => $vacas, 'toros' => $toros]);
+        return view('nobillas.nobillas_create',['vacas' => $vacas, 'toros' => $toros]);
     }
 
     /**
@@ -43,10 +43,10 @@ class BecerrosController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla'=>'required', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
 
-        Becerros::create($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro creado satisfactoriamente');
+        Nobillas::create($request->all());
+        return redirect()->route('nobillas.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -58,8 +58,8 @@ class BecerrosController extends Controller
     public function show($id)
     {
         //
-        $becerros = Becerros::find($id);
-        return  view('becerros.show',compact('becerros'));
+        $nobillas = Nobillas::find($id);
+        return  view('nobillas.show',compact('nobillas'));
     }
 
     /**
@@ -71,8 +71,8 @@ class BecerrosController extends Controller
     public function edit($id)
     {
         //
-        $becerros=Becerros::find($id);
-        return view('becerros.becerros_edit',compact('becerros'));
+        $nobillas=Nobillas::find($id);
+        return view('nobillas.edit',compact('nobillas'));
     }
 
     /**
@@ -85,10 +85,10 @@ class BecerrosController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla'=>'required', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
 
-        Becerros::find($id)->update($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro actualizado satisfactoriamente');
+        Nobillas::find($id)->update($request->all());
+        return redirect()->route('nobillas.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -100,7 +100,7 @@ class BecerrosController extends Controller
     public function destroy($id)
     {
         //
-        Becerros::find($id)->delete();
-        return redirect()->route('becerros.index')->with('success','Registro eliminado satisfactoriamente');
+        Nobillas::find($id)->delete();
+        return redirect()->route('nobillas.index')->with('success','Registro eliminado satisfactoriamente');
     }
 }

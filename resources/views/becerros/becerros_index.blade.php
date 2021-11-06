@@ -25,6 +25,7 @@
                   <th>Id de la vaca</th>
                   <th>Id del toro</th>
                   <th>Tipo de Animal</th>
+                  <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
                 <tbody>
                   @if($becerros->count())  
@@ -39,14 +40,13 @@
                     <td>{{$becerro->vaca_id}}</td>
                     <td>{{$becerro->toro_id}}</td>
                     <td>{{$becerro->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrosController@edit', $becerro->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
-                    <td>
-                      <form action="{{action('BecerrosController@destroy', $becerro->id)}}" method="post">
-                      {{csrf_field()}}
-                      <input name="_method" type="hidden" value="DELETE">
-    
-                      <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                    </td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrosController@edit', $becerro->id)}}" ><i class="nav-icon i-Pen-5"></i></span></a></td>
+                <td>
+                  <form action="{{action('BecerrosController@destroy', $becerro->id)}}" method="post">
+                   {{csrf_field()}}
+                   <input name="_method" type="hidden" value="DELETE">
+                   <button class="btn btn-danger btn-xs" type="submit"><i class="nav-icon i-Close-Window"></i></span></button>
+                 </td>
                   </tr>
                   @endforeach 
                   @else

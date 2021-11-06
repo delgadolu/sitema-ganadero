@@ -4,21 +4,20 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Vacas extends Model
+class Toretes extends Model
 {
+    //
     public $timestamps   = false;
-    protected $table     = "Vacas";
+    protected $table     = "toretes";
     protected $fillable  = [
         'num_registro', 
         'fecha_nacim', 
-        'nombre_vaca', 
-        'edad_vaca',
+        'nombre_torete', 
+        'edad_torete', 
         'peso_nacim', 
         'peso_destete', 
-        'peso_primer_servi', 
-        'edad_servi',
-        'num_partos',
-        'hijas_provadas',
+        'vaca_id',
+        'toro_id',
         'tipo_animal_id'
     ];
 }

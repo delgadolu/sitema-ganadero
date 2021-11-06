@@ -24,7 +24,7 @@
  
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nuevo Vaca</h3>
+					<h3 class="panel-title">Nueva Vaca</h3>
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
@@ -40,26 +40,36 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Fecha de Nacimiento</label>
-										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker">
+										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker" placeholder="Fecha de Nacimiento">
 									</div>
 								</div>
 
 							</div>
-							<div class="form-group">
-								<label class="label">Nombre de la Vaca</label>
-								<input type="text" name="nombre_vaca" id="nombre_vaca" class="form-control input-sm">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Nombre de la Vaca</label>
+										<input type="text" name="nombre_vaca" id="nombre_vaca" class="form-control input-sm" placeholder="Nombre de la Vaca">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Edad de la Vaca</label>
+										<input type="text" name="edad_vaca" id="edad_vaca" class="form-control input-sm" placeholder="Edad de la Vaca">
+									</div>
+								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Peso Al Nacimiento</label>
 									<div class="form-group">
-										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
+										<label class="label">Peso Al Nacimiento</label>
+										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" placeholder="Peso al Nacer">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso al Destete</label>
-										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm">
+										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" placeholder="Peso al Destetar">
 									</div>
 								</div>
 							</div>
@@ -67,25 +77,25 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Peso al Primer Servicio</label>
 									<div class="form-group">
-										<input type="text" name="peso_primer_servi" id="peso_primer_servi" class="form-control input-sm">
+										<input type="text" name="peso_primer_servi" id="peso_primer_servi" class="form-control input-sm" placeholder="Peso al Primer Servicio">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Edad al Servicio</label>
-										<input type="text" name="edad_servi" id="edad_servi" class="form-control input-sm">
+										<input type="text" name="edad_servi" id="edad_servi" class="form-control input-sm" placeholder="Edad al Servicio">
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Numero de Partos</label>
-									<input type="text" name="num_partos" id="num_partos" class="form-control input-sm">
+									<input type="text" name="num_partos" id="num_partos" class="form-control input-sm" placeholder="Numero de Partos">
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Hijas Provadas</label>
-										<input type="text" name="hijas_provadas" id="hijas_provadas" class="form-control input-sm">
+										<input type="text" name="hijas_provadas" id="hijas_provadas" class="form-control input-sm" placeholder="Hijas Provadas">
 									</div>
 								</div>
 							</div>
@@ -94,9 +104,9 @@
 									<label class="label">Tipo de Animal</label>
 									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
-										<option value="1">Animal de Leche</option>
-										<option value="2">Animal de Carne</option>
-										<option value="3">Animal Doble proposito</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>

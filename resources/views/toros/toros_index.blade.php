@@ -25,7 +25,7 @@
                   <th>Peso al Saltar</th>
                   <th>Hijas Provadas</th>
                   <th>Tipo de Animal</th>
-                  <th colspan="2">Acciones</th>
+                  <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
                 <tbody>
                   @if($toros->count())  

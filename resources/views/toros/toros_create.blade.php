@@ -40,26 +40,26 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Fecha de Nacimiento</label>
-										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker" >
+										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker" placeholder="Fecha de Nacimiento">
 									</div>
 								</div>
 
 							</div>
 							<div class="form-group">
 								<label class="label">Nombre del Toro</label>
-								<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm">
+								<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm" placeholder="Nombre del Toro">
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Edad del Toro</label>
-										<input type="text" name="edad_toro" id="edad_toro" class="form-control input-sm">
+										<input type="text" name="edad_toro" id="edad_toro" class="form-control input-sm" placeholder="Edad del Toro">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Peso Al Nacimiento</label>
 									<div class="form-group">
-										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
+										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" placeholder="Peso al Nacer">
 									</div>
 								</div>
 							</div>
@@ -67,13 +67,13 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso al Destete</label>
-										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm">
+										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" placeholder="Peso al Destetar">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Peso al Saltar</label>
 									<div class="form-group">
-										<input type="text" name="peso_saltar" id="peso_saltar" class="form-control input-sm">
+										<input type="text" name="peso_saltar" id="peso_saltar" class="form-control input-sm" placeholder="Peso al Saltar">
 									</div>
 								</div>
 							</div>
@@ -81,7 +81,7 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Hijas Provadas</label>
-										<input type="text" name="hijas_provadas" id="desendencia_provadas" class="form-control input-sm">
+										<input type="text" name="hijas_provadas" id="desendencia_provadas" class="form-control input-sm" placeholder="Hijas Provadas">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">

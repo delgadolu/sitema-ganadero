@@ -25,6 +25,8 @@ class CreateBecerrasTable extends Migration
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->integer('toro_id')->unsigned();
             $table->foreign('toro_id')->references('id')->on('toros'); 
+            $table->integer('tipo_animal_id')->unsigned();
+            $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
         });
     }
 

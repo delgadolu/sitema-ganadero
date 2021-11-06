@@ -17,6 +17,7 @@ class CreateVacasTable extends Migration
             $table->increments('id');
             $table->string('num_registro');
             $table->string('nombre_vaca');
+            $table->Integer('edad_vaca');
             $table->date('fecha_nacim');
             $table->float('peso_nacim');
             $table->float('peso_destete');
@@ -26,7 +27,6 @@ class CreateVacasTable extends Migration
             $table->float('hijas_provadas');
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
-            //$table->foreignId('id_tipo')->constrained('tipo_animal')->onDelete('cascade')->onUpdate('cascade'); 
         });
     }
 

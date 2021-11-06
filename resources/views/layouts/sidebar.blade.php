@@ -78,13 +78,23 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='form-validation' ? 'open' : '' }}" href="{{route('form-validation')}}">
+                <a class="{{ Route::currentRouteName()=='becerras.index' ? 'open' : '' }}" href="{{route('becerras.index')}}">
+                    <span class="item-name">Becerras</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='nobillas.index' ? 'open' : '' }}" href="{{route('nobillas.index')}}">
                     <span class="item-name">Novillas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='form-validation' ? 'open' : '' }}" href="{{route('form-validation')}}">
+                <a class="{{ Route::currentRouteName()=='toretes.index' ? 'open' : '' }}" href="{{route('toretes.index')}}">
                     <span class="item-name">Toretes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='mautas.index' ? 'open' : '' }}" href="{{route('mautas.index')}}">
+                    <span class="item-name">Mautas</span>
                 </a>
             </li>
         </ul>
@@ -106,9 +116,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='chat' ? 'open' : '' }}" href="{{route('chat')}}">
-                    <i class="nav-icon i-Speach-Bubble-3"></i>
-                    <span class="item-name">Chat</span>
+                <a class="{{ Route::currentRouteName()=='finca.index' ? 'open' : '' }}" href="{{route('finca.index')}}">
+                    <span class="item-name">Finca</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='gestacion.index' ? 'open' : '' }}" href="{{route('gestacion.index')}}">
+                    <span class="item-name">Gestacion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='sanidad.index' ? 'open' : '' }}" href="{{route('sanidad.index')}}">
+                    <span class="item-name">Sanidad</span>
                 </a>
             </li>
         </ul>

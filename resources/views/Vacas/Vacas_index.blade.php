@@ -7,7 +7,7 @@
       <div class="col-md-12 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="pull-left"><h3>Lista Vacas</h3></div>
+            <div class="pull-left"><h3>Lista de Vacas</h3></div>
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('Vacas.create') }}" class="btn btn-primary" >Agregar</a>
@@ -19,6 +19,7 @@
                   <th>Numero de Registro</th>
                   <th>Fecha de Nacimiento</th>
                   <th>Nombre de la Vaca</th>
+                  <th>Edad de la Vaca</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
                   <th>Peso al Primer Servicio</th>
@@ -26,25 +27,26 @@
                   <th>Numero de Partos</th>
                   <th>Hijas Provadas</th>
                   <th>Tipo de Animal</th>
-                  <th colspan="2">Acciones</th>
+                  <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
                 <tbody>
-                  @if($Vacas->count())  
-                  @foreach($Vacas as $Vacas)  
+                  @if($vacas->count())  
+                  @foreach($vacas as $vaca)  
                   <tr>
-                    <td>{{$Vacas->num_registro}}</td>
-                    <td>{{$Vacas->fecha_nacim}}</td>
-                    <td>{{$Vacas->nombre_vaca}}</td>
-                    <td>{{$Vacas->peso_nacim}}</td>
-                    <td>{{$Vacas->peso_destete}}</td>
-                    <td>{{$Vacas->peso_primer_servi}}</td>
-                    <td>{{$Vacas->edad_servi}}</td>
-                    <td>{{$Vacas->num_partos}}</td>
-                    <td>{{$Vacas->hijas_provadas}}</td>
-                    <td>{{$Vacas->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('VacasController@edit', $Vacas->id)}}" > <i class="nav-icon i-Pen-5"></i>  </a></td>
+                    <td>{{$vaca->num_registro}}</td>
+                    <td>{{$vaca->fecha_nacim}}</td>
+                    <td>{{$vaca->nombre_vaca}}</td>
+                    <td>{{$vaca->edad_vaca}}</td>
+                    <td>{{$vaca->peso_nacim}}</td>
+                    <td>{{$vaca->peso_destete}}</td>
+                    <td>{{$vaca->peso_primer_servi}}</td>
+                    <td>{{$vaca->edad_servi}}</td>
+                    <td>{{$vaca->num_partos}}</td>
+                    <td>{{$vaca->hijas_provadas}}</td>
+                    <td>{{$vaca->tipo_animal_id}}</td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('VacasController@edit', $vaca->id)}}" > <i class="nav-icon i-Pen-5"></i>  </a></td>
                     <td>
-                      <form action="{{action('VacasController@destroy', $Vacas->id)}}" method="post">
+                      <form action="{{action('VacasController@destroy', $vaca->id)}}" method="post">
                       {{csrf_field()}}
                       <input name="_method" type="hidden" value="DELETE">
     

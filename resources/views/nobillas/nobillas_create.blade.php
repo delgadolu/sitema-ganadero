@@ -2,7 +2,7 @@
 
 @extends('layouts.master')
 @section('page-css')
-@section("titulo", "Registrar Becerros")
+@section("titulo", "Registrar Novillas")
 @section('main-content') 
 <div class="row">
 	<section class="content card p-4">
@@ -25,11 +25,11 @@
  
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nuevo Becerro</h3>
+					<h3 class="panel-title">Nueva Novilla</h3>
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('becerros.store') }}"  role="form">
+						<form method="POST" action="{{ route('nobillas.store') }}"  role="form">
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -47,19 +47,19 @@
 
 							</div>
 							<div class="form-group">
-								<label class="label">Nombre del Becerro</label>
-								<input type="text" name="nombre_becerro" id="nombre_becerro" class="form-control input-sm">
+								<label class="label">Nombre de la Novilla</label>
+								<input type="text" name="nombre_nobilla" id="nombre_nobilla" class="form-control input-sm">
 							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Edad del Becerro</label>
-										<input type="text" name="edad_becerro" id="edad_becerro" class="form-control input-sm">
+										<label class="label">Edad de la Novilla</label>
+										<input type="text" name="edad_nobilla" id="edad_nobilla" class="form-control input-sm">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Peso Al Nacimiento</label>
+									<label class="label">Peso Al Nacimiento</label>
 										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
 									</div>
 								</div>
@@ -71,7 +71,8 @@
 										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm">
 									</div>
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">									
+								<div class="col-xs-6 col-sm-6 col-md-6">
+
 									<div class="form-group">
 										<label class="label">Id de la Vaca</label>
 										<select class="form-control" name="vaca_id" id="vaca_id">
@@ -99,10 +100,10 @@
 									<div class="form-group">
 										<label class="label">Tipo de Animal</label>
 										<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
-										<option selected>Selecciones</option>
-										<option value="1">Animal de Leche</option>
-										<option value="2">Animal de Carne</option>
-										<option value="3">Animal Doble proposito</option>
+											<option selected>Selecciones</option>
+											<option value="1">Animal de Leche</option>
+											<option value="2">Animal de Carne</option>
+											<option value="3">Animal Doble proposito</option>
 										</select>
 									</div>	
 								</div>
@@ -110,7 +111,7 @@
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<button class="btn btn-success">Guardar</button>
-                					<a class="btn btn-primary" href="{{route('becerros.index')}}">Volver al listado</a>
+                					<a class="btn btn-primary" href="{{route('nobillas.index')}}">Volver al listado</a>
 								</div>	
 							</div>
 						</form>

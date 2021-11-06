@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Becerros;
+use App\Mautas;
 use App\Vacas;
 use App\Toros;
 use Illuminate\Http\Request;
 
-class BecerrosController extends Controller
+class MautasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class BecerrosController extends Controller
     public function index()
     {
         //
-        $becerros = Becerros::orderBy('id','DESC')->paginate(3);
-        return view('becerros.becerros_index',compact('becerros')); 
+        $mautas = Mautas::orderBy('id','DESC')->paginate(3);
+        return view('mautas.mautas_index',compact('mautas')); 
     }
 
     /**
@@ -29,9 +29,9 @@ class BecerrosController extends Controller
     public function create()
     {
         //
-        $vacas = Vacas::all();
+       $vacas = Vacas::all();
         $toros = Toros::all();
-        return view('becerros.becerros_create',['vacas' => $vacas, 'toros' => $toros]);
+        return view('mautas.mautas_create',['vacas' => $vacas, 'toros' => $toros]);
     }
 
     /**
@@ -43,10 +43,10 @@ class BecerrosController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_mauta'=>'required', 'edad_mauta'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
 
         Becerros::create($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro creado satisfactoriamente');
+        return redirect()->route('mautas.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -58,8 +58,8 @@ class BecerrosController extends Controller
     public function show($id)
     {
         //
-        $becerros = Becerros::find($id);
-        return  view('becerros.show',compact('becerros'));
+        $mautas = Mautas::find($id);
+        return  view('mautas.show',compact('mautas'));
     }
 
     /**
@@ -71,8 +71,8 @@ class BecerrosController extends Controller
     public function edit($id)
     {
         //
-        $becerros=Becerros::find($id);
-        return view('becerros.becerros_edit',compact('becerros'));
+        $mautas=Mautas::find($id);
+        return view('mautas.edit',compact('mautas'));
     }
 
     /**
@@ -85,10 +85,10 @@ class BecerrosController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_mauta'=>'required', 'edad_mauta'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
 
-        Becerros::find($id)->update($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro actualizado satisfactoriamente');
+        Mautas::find($id)->update($request->all());
+        return redirect()->route('mautas.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -100,7 +100,7 @@ class BecerrosController extends Controller
     public function destroy($id)
     {
         //
-        Becerros::find($id)->delete();
-        return redirect()->route('becerros.index')->with('success','Registro eliminado satisfactoriamente');
+        Mautas::find($id)->delete();
+        return redirect()->route('mautas.index')->with('success','Registro eliminado satisfactoriamente');
     }
 }

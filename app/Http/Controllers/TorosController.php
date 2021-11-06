@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Toros;
 use App\TipoAnimal;
 use Illuminate\Http\Request;
+
 class TorosController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class TorosController extends Controller
     {
         $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro'=>'required', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_saltar'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
 
-        toros::create($request->all());
+        Toros::create($request->all());
         return redirect()->route('toros.index')->with('success','Registro creado satisfactoriamente');
 
     }
@@ -56,7 +57,7 @@ class TorosController extends Controller
     public function show($id)
     {
         //
-        $toros = toros::find($id);
+        $toros = Toros::find($id);
         return  view('toros.show',compact('toros'));
     }
 
@@ -69,8 +70,13 @@ class TorosController extends Controller
     public function edit($id)
     {
         //
-        $toros=toros::find($id);
-        return view('toros.edit',compact('toros'));
+        $toros=Toros::find($id);
+
+        $tipoAnimal = TipoAnimal::all();
+
+        return view('toros.toros_edit', [
+            'tipoAnimal' => $tipoAnimal, 'toros' => $toros
+        ]);
     }
 
     /**
@@ -85,7 +91,7 @@ class TorosController extends Controller
         //
         $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro'=>'required', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_saltar'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
  
-        toros::find($id)->update($request->all());
+        Toros::find($id)->update($request->all());
         return redirect()->route('toros.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
@@ -98,7 +104,7 @@ class TorosController extends Controller
     public function destroy($id)
     {
         //
-        toros::find($id)->delete();
+        Toros::find($id)->delete();
         return redirect()->route('toros.index')->with('success','Registro eliminado satisfactoriamente');
     }
 }

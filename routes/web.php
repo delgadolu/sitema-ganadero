@@ -19,6 +19,14 @@ Route::resource('Tipo_Animal', 'TipoAnimalController');
 Route::resource('toros', 'TorosController');
 Route::resource('Vacas', 'VacasController');
 Route::resource('becerros', 'BecerrosController');
+Route::resource('becerras', 'BecerrasController');
+Route::resource('toretes', 'ToretesController');
+Route::resource('mautas', 'MautasController');
+Route::resource('nobillas', 'NobillasController');
+Route::resource('finca', 'FincaController');
+Route::resource('sanidad', 'SanidadController');
+Route::resource('gestacion', 'GestacionController');
+
 // TypeUaeer
 //Route::view('type_user', 'type_user.type_user_index')->name('TypeUser');
 // Route::view('/', 'starter')->name('starter');

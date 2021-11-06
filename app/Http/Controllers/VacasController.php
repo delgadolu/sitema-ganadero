@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vacas;
+use App\TipoAnimal;
 use Illuminate\Http\Request;
 
 class VacasController extends Controller
@@ -15,8 +16,8 @@ class VacasController extends Controller
     public function index()
     {
         //
-        $Vacas = Vacas::orderBy('id','DESC')->paginate(3);
-        return view('Vacas.Vacas_index',compact('Vacas')); 
+        $vacas = Vacas::orderBy('id','DESC')->paginate(3);
+        return view('Vacas.Vacas_index',compact('vacas')); 
     }
 
     /**
@@ -26,8 +27,11 @@ class VacasController extends Controller
      */
     public function create()
     {
-        //
-        return view('Vacas.Vacas_create');
+         $tipoAnimal = TipoAnimal::all();
+
+        return view('Vacas.Vacas_create', [
+            'tipoAnimal' => $tipoAnimal
+        ]);
     }
 
     /**
@@ -39,7 +43,7 @@ class VacasController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
 
         Vacas::create($request->all());
         return redirect()->route('Vacas.index')->with('success','Registro creado satisfactoriamente');
@@ -54,8 +58,8 @@ class VacasController extends Controller
     public function show($id)
     {
         //
-        $Vacas = Vacas::find($id);
-        return  view('Vacas.show',compact('Vacas'));
+        $vacas = Vacas::find($id);
+        return  view('Vacas.show',compact('vacas'));
     }
 
     /**
@@ -67,8 +71,13 @@ class VacasController extends Controller
     public function edit($id)
     {
         //
-        $Vacas=Vacas::find($id);
-        return view('Vacas.edit',compact('Vacas'));
+        $vacas=Vacas::find($id);
+        
+        $tipoAnimal = TipoAnimal::all();
+
+        return view('Vacas.Vacas_edit', [
+            'tipoAnimal' => $tipoAnimal, 'vacas' => $vacas
+        ]);
     }
 
     /**
@@ -81,7 +90,7 @@ class VacasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+         $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
  
         Vacas::find($id)->update($request->all());
         return redirect()->route('Vacas.index')->with('success','Registro actualizado satisfactoriamente');

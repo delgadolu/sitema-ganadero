@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Becerros;
+use App\Gestacion;
 use App\Vacas;
 use App\Toros;
 use Illuminate\Http\Request;
 
-class BecerrosController extends Controller
+class GestacionController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -17,8 +17,8 @@ class BecerrosController extends Controller
     public function index()
     {
         //
-        $becerros = Becerros::orderBy('id','DESC')->paginate(3);
-        return view('becerros.becerros_index',compact('becerros')); 
+        $gestacion = Gestacion::orderBy('id','DESC')->paginate(3);
+        return view('gestacion.gestacion_index',compact('gestacion')); 
     }
 
     /**
@@ -28,10 +28,9 @@ class BecerrosController extends Controller
      */
     public function create()
     {
-        //
         $vacas = Vacas::all();
         $toros = Toros::all();
-        return view('becerros.becerros_create',['vacas' => $vacas, 'toros' => $toros]);
+        return view('gestacion.gestacion_create',['vacas' => $vacas, 'toros' => $toros]);
     }
 
     /**
@@ -43,10 +42,10 @@ class BecerrosController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,['fecha_gesta'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required']);
 
-        Becerros::create($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro creado satisfactoriamente');
+        Gestacion::create($request->all());
+        return redirect()->route('gestacion.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -58,8 +57,8 @@ class BecerrosController extends Controller
     public function show($id)
     {
         //
-        $becerros = Becerros::find($id);
-        return  view('becerros.show',compact('becerros'));
+        $gestacion = Gestacion::find($id);
+        return  view('gestacion.show',compact('gestacion'));
     }
 
     /**
@@ -71,8 +70,8 @@ class BecerrosController extends Controller
     public function edit($id)
     {
         //
-        $becerros=Becerros::find($id);
-        return view('becerros.becerros_edit',compact('becerros'));
+        $gestacion=Gestacion::find($id);
+        return view('gestacion.edit',compact('gestacion'));
     }
 
     /**
@@ -85,10 +84,10 @@ class BecerrosController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_becerro'=>'required', 'edad_becerro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,['fecha_gesta'=>'required', 'vaca_id'=>'required', 'toro_id'=>'required']);
 
-        Becerros::find($id)->update($request->all());
-        return redirect()->route('becerros.index')->with('success','Registro actualizado satisfactoriamente');
+        Gestacion::find($id)->update($request->all());
+        return redirect()->route('gestacion.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -100,7 +99,7 @@ class BecerrosController extends Controller
     public function destroy($id)
     {
         //
-        Becerros::find($id)->delete();
-        return redirect()->route('becerros.index')->with('success','Registro eliminado satisfactoriamente');
+        Gestacion::find($id)->delete();
+        return redirect()->route('gestacion.index')->with('success','Registro eliminado satisfactoriamente');
     }
 }
