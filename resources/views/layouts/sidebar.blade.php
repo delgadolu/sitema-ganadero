@@ -42,24 +42,6 @@
                     <span class="item-name">Version 1</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{route('dashboard_version_2')}}" class="{{ Route::currentRouteName()=='dashboard_version_2' ? 'open' : '' }}">
-                    <i class="nav-icon i-Clock-4"></i>
-                    <span class="item-name">Version 2</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='dashboard_version_3' ? 'open' : '' }}" href="{{route('dashboard_version_3')}}" >
-                    <i class="nav-icon i-Over-Time"></i>
-                    <span class="item-name">Version 3</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='dashboard_version_4' ? 'open' : '' }}" href="{{route('dashboard_version_4')}}">
-                    <i class="nav-icon i-Clock"></i>
-                    <span class="item-name">Version 4</span>
-                </a>
-            </li>
         </ul>
         <ul class="childNav" data-parent="administration">
             <li class="nav-item">

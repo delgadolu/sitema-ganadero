@@ -23,8 +23,7 @@
                             <div class="dropdown-header">
                                 <i class="i-Lock-User mr-1"></i> Usuario
                             </div>
-                            <a class="dropdown-item">Account settings</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}">Sign out</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}">Salir</a>
                         </div>
                     </div>
                 </div>
