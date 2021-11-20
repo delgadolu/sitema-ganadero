@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
 @extends('layouts.master')
 @section('page-css')
 @section("titulo", "Registrar Becerras")
@@ -39,7 +41,7 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Fecha de Nacimiento</label>
-										<input type="date" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm">
+										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker">
 									</div>
 								</div>
 
@@ -107,4 +109,19 @@
 		</div>
 	</section>
 </div>
+@endsection
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$('.datetimepicker').datetimepicker({
+			viewMode: 'years',
+            format: 'YYYY-MM-DD'
+		});
+	});
+</script> 
 @endsection

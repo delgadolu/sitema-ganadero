@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGestacionTable extends Migration
+class CreateServiciosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateGestacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('gestacion', function (Blueprint $table) {
+        Schema::create('servicios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('num_registro');
             $table->string('nombre_vaca');
-            $table->Integer('num_partos');
-            $table->integer('vaca_id')->unsigned();
-            $table->foreign('vaca_id')->references('id')->on('vacas');
-            $table->integer('toro_id')->unsigned();
-            $table->foreign('toro_id')->references('id')->on('toros');
+            $table->enum('Tipo de Servicio', [1,2])->default('1')->comment("1 => MonteNatural, 2 => Inseminacion");
+
         });
     }
 
@@ -32,6 +29,6 @@ class CreateGestacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gestacion');
+        Schema::dropIfExists('servicios');
     }
 }

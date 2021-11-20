@@ -15,8 +15,10 @@ class CreateProduccionLecheTable extends Migration
     {
         Schema::create('produccion_leche', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('cant_leche');
-            $table->float('pico_lactancia');
+            $table->Integer('num_registro');
+            $table->string('nombre_vaca');
+            $table->Integer('num_partos');
+            $table->float('prome_mensu_leche');
             $table->integer('vaca_id')->unsigned();
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->enum('status', [1,2,3])->default('1')->comment("1 => Dias, 2 => Mes, 3 => Año");   

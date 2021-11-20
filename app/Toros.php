@@ -15,8 +15,10 @@ class Toros extends Model
         'edad_toro', 
         'peso_nacim', 
         'peso_destete', 
-        'peso_saltar', 
-        'hijas_provadas', 
+        'peso_inclu_servi', 
+        'hijas_provadas',
+        'num_registro_papa',
+        'num_registro_mama', 
         'tipo_animal_id'
     ];
 }

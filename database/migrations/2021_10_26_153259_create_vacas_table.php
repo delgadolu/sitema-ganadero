@@ -25,6 +25,11 @@ class CreateVacasTable extends Migration
             $table->float('peso_primer_servi');
             $table->Integer('num_partos');
             $table->float('hijas_provadas');
+            $table->string('num_registro_papa');
+            $table->string('num_registro_mama');
+            $table->string('img_vaca');
+            $table->string('img_padre_vaca');
+            $table->string('img_madre_vaca');
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
         });

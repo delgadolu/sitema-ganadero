@@ -77,7 +77,7 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Peso al Saltar</label>
+										<label class="label">Peso de Inclusion al Servicio</label>
 										<input type="text" name="peso_saltar" id="peso_saltar" class="form-control input-sm" value="{{$toros->peso_saltar}}">
 									</div>
 								</div>
@@ -88,6 +88,19 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" value="{{$toros->num_registro_papa}}">
+									</div>
+									<div class="form-group">
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" value="{{$toros->num_registro_mama}}">
+									</div>
+								</div>
+							</div>	
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">

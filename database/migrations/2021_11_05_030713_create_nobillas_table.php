@@ -13,14 +13,19 @@ class CreateNobillasTable extends Migration
      */
     public function up()
     {
-        Schema::create('nobillas', function (Blueprint $table) {
+        Schema::create('novillas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('num_registro');
-            $table->string('nombre_nobilla');
-            $table->integer('edad_nobilla');
+            $table->string('nombre_novilla');
+            $table->integer('edad_novilla');
             $table->date('fecha_nacim');
             $table->float('peso_nacim');
             $table->float('peso_destete');
+            $table->string('num_registro_papa');
+            $table->string('num_registro_mama');
+            $table->string('img_novilla');
+            $table->string('img_padre_novilla');
+            $table->string('img_madre_novilla');
             $table->integer('vaca_id')->unsigned();
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->integer('toro_id')->unsigned();
@@ -35,6 +40,6 @@ class CreateNobillasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nobillas');
+        Schema::dropIfExists('novillas');
     }
 }

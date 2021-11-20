@@ -21,6 +21,11 @@ class CreateMautasTable extends Migration
             $table->date('fecha_nacim');
             $table->float('peso_nacim');
             $table->float('peso_destete');
+            $table->string('num_registro_papa');
+            $table->string('num_registro_mama');
+            $table->string('img_mauta');
+            $table->string('img_padre_mauta');
+            $table->string('img_madre_mauta');
             $table->integer('vaca_id')->unsigned();
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->integer('toro_id')->unsigned();

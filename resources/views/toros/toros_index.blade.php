@@ -22,8 +22,10 @@
                   <th>Edad del Toro</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
-                  <th>Peso al Saltar</th>
+                  <th>Peso de Inclusion al Servicio</th>
                   <th>Hijas Provadas</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
                   <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
@@ -37,8 +39,10 @@
                     <td>{{$toro->edad_toro}}</td>
                     <td>{{$toro->peso_nacim}}</td>
                     <td>{{$toro->peso_destete}}</td>
-                    <td>{{$toro->peso_saltar}}</td>
+                    <td>{{$toro->peso_inclu_servi}}</td>
                     <td>{{$toro->hijas_provadas}}</td>
+                    <td>{{$toro->num_registro_papa}}</td>
+                    <td>{{$toro->num_registro_mama}}</td>
                     <td>{{$toro->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('TorosController@edit', $toro->id)}}" > <i class="nav-icon i-Pen-5"></i> </span></a></td>
                     <td>

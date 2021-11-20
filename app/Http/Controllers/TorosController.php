@@ -45,7 +45,7 @@ class TorosController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro'=>'required', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_saltar'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_inclu_servi'=>'required', 'hijas_provadas' ,'num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
 
         Toros::create($request->all());
         return redirect()->route('toros.index')->with('success','Registro creado satisfactoriamente');
@@ -93,8 +93,8 @@ class TorosController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro'=>'required', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_saltar'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
- 
+        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_toro', 'edad_toro'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_inclu_servi'=>'required', 'hijas_provadas' ,'num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
+
         Toros::find($id)->update($request->all());
         return redirect()->route('toros.index')->with('success','Registro actualizado satisfactoriamente');
     }
