@@ -21,7 +21,11 @@
                                 <img src="{{asset('assets/images/logo.png')}}" alt="">
                             </div>
                             <h1 class="mb-3 text-18">Forgot Password</h1>
-                            <form method="POST" action="{{ route('password.update') }}">
+                            <div class="card">
+                <div class="card-header">{{ __('Reset Password') }}</div>
+
+                <div class="card-body">
+                    <form method="POST" action="{{ route('password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
@@ -70,19 +74,8 @@
                             </div>
                         </div>
                     </form>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center " style="background-size: cover;background-image: url({{asset('assets/images/photo-long-3.jpg')}}">
-                        <div class="pr-3 auth-right">
-                            <a class="btn btn-outline-primary btn-outline-email btn-block btn-icon-text btn-rounded" href="{{ route('register') }}">
-                                <i class="i-Mail-with-At-Sign"></i> Sign up with Email
-                            </a>
-                            <a class="btn btn-outline-primary btn-outline-google btn-block btn-icon-text btn-rounded">
-                                <i class="i-Google-Plus"></i> Sign in with Google
-                            </a>
-                            <a class="btn btn-outline-primary btn-outline-facebook btn-block btn-icon-text btn-rounded">
-                                <i class="i-Facebook-2"></i> Sign in with Facebook
-                            </a>
+                </div>
+            </div>
                         </div>
                     </div>
                 </div>

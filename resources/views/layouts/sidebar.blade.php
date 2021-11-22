@@ -10,22 +10,15 @@
             </li>
             <li class="nav-item {{ request()->is('administration/*') ? 'active' : '' }}" data-item="administration">
                 <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-Management"></i>
-                    <span class="nav-text">Administracion</span>
+                    <i class="nav-icon i-File-Clipboard-File--Text"></i>
+                    <span class="nav-text">Registros</span>
                 </a>
                 <div class="triangle"></div>
             </li>
             <li class="nav-item {{ request()->is('process/*') ? 'active' : '' }}" data-item="process">
                 <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-Gears"></i>
-                    <span class="nav-text">Procesos</span>
-                </a>
-                <div class="triangle"></div>
-            </li>
-            <li class="nav-item {{ request()->is('reports/*') ? 'active' : '' }}" data-item="reports">
-                <a class="nav-item-hold" href="#">
-                    <i class="nav-icon i-File-Clipboard-File--Text"></i>
-                    <span class="nav-text">Reportes</span>
+                    <i class="nav-icon i-Farmer"></i>
+                    <span class="nav-text">Control</span>
                 </a>
                 <div class="triangle"></div>
             </li>
@@ -39,7 +32,7 @@
             <li class="nav-item ">
                 <a class="{{ Route::currentRouteName()=='dashboard_version_1' ? 'open' : '' }}" href="{{route('dashboard_version_1')}}">
                     <i class="nav-icon i-Clock-3"></i>
-                    <span class="item-name">Version 1</span>
+                    <span class="item-name">Inicio</span>
                 </a>
             </li>
         </ul>

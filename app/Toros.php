@@ -19,6 +19,9 @@ class Toros extends Model
         'hijas_provadas',
         'num_registro_papa',
         'num_registro_mama', 
-        'tipo_animal_id'
+        'tipo_animal_id',
+        'img_toro',
+        'img_padre_toro',
+        'img_madre_toro'
     ];
 }

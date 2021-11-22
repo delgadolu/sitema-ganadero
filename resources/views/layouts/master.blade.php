@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{mix('assets/styles/css/themes/lite-blue.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
     {{-- page specific css --}}
+    <link rel="stylesheet" href="{{asset('assets/styles/css/global.css')}}">
     @yield('page-css')
 </head>
 
@@ -29,7 +30,7 @@
         {{-- end of left sidebar --}}
 
         <!-- ============ Body content start ============= -->
-        <div class="main-content-wrap sidenav-open d-flex flex-column">
+        <div class="main-content-wrap sidenav-open d-flex flex-column" id="main-content">
 
             @yield('main-content')
 
@@ -46,6 +47,7 @@
     {{-- common js --}}
     <script src="{{mix('assets/js/common-bundle-script.js')}}"></script>
     {{-- page specific javascript --}}
+    <script src="{{asset('assets/js/custom.js')}}"></script>
     @yield('page-js')
 
     {{-- theme javascript --}}

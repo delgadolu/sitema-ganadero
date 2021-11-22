@@ -1,0 +1,77 @@
+.hide {
+	display: none;
+}
+.custom-file label.custom-file-label:after {
+    content: "";
+    height: 0;
+    width: 0;
+    padding: 0;
+    display: none;
+}
+.custom-file .custom-file-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.custom-file-image {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    max-width: 100%;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.custom-file-image.is-invalid {
+    border-color: #D22500;
+}
+.custom-file-image .file-buttons .btn {
+    border-radius: 0;
+}
+.custom-file-image .file-preview,
+.custom-file-image .file-default {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 135px;
+    padding: 5px;
+    background-color: #fff;
+}
+.custom-file-image .file-preview.hide,
+.custom-file-image .file-default.hide {
+    display: none;
+}
+.file-preview span {
+    margin: auto;
+    display: inline-block;
+    max-width: 100%;
+    padding: 0 5px;
+    word-break: break-all;
+}
+.file-preview img,
+.custom-file-image img.file-thumbnail {
+    position: relative;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+}
+.custom-file-image .file-legend {
+    width: 100%;
+    height: 16px;
+    line-height: 15px;
+    overflow: hidden;
+    background-color: #ccc;
+    color: #666;
+    font-size: .75rem;
+    cursor: default;
+}
+.custom-file-image .file-description {
+    background-color: #888;
+    color: #eee;
+    line-height: 20px;
+    height: 20px;
+    font-weight: 600;
+    cursor: default;
+}

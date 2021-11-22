@@ -11,6 +11,7 @@
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('toros.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="toros_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">

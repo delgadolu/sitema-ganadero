@@ -25,9 +25,9 @@ class CreateTorosTable extends Migration
             $table->float('hijas_provadas');
             $table->string('num_registro_papa');
             $table->string('num_registro_mama');
-            $table->string('img_toro');
-            $table->string('img_padre_toro');
-            $table->string('img_madre_toro');
+            $table->string('img_toro')->nullable();
+            $table->string('img_padre_toro')->nullable();
+            $table->string('img_madre_toro')->nullable();
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
             //$table->foreignId('id_tipo')->constrained('tipo_animal')->onDelete('cascade')->onUpdate('cascade');

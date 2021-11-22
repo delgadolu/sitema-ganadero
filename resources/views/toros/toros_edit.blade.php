@@ -78,7 +78,7 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso de Inclusion al Servicio</label>
-										<input type="text" name="peso_saltar" id="peso_saltar" class="form-control input-sm" value="{{$toros->peso_saltar}}">
+										<input type="text" name="peso_inclu_servi" id="peso_inclu_servi" class="form-control input-sm" value="{{$toros->peso_inclu_servi}}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -95,6 +95,8 @@
 										<label class="label">Numero de Registro del Padre</label>
 										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" value="{{$toros->num_registro_papa}}">
 									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Numero de Registro de la Madre</label>
 										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" value="{{$toros->num_registro_mama}}">
@@ -111,6 +113,62 @@
 											<option value={{$animal->id}} <?php if ($toros['tipo_animal_id'] == $animal['id']) echo "selected"?>>{{$animal->descripcion}}</option>
 										@endforeach
 										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_toro"
+                                                id="img_toro"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value="../../uploads/toros/{{$toros->img_toro}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Toro"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_toro"
+												id="img_padre_toro"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/toros/{{$toros->img_padre_toro}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_toro"
+												id="img_madre_toro"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/toros/{{$toros->img_madre_toro}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
 									</div>
 								</div>
 							</div>

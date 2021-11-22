@@ -28,7 +28,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('toros.store') }}"  role="form">
+						<form method="POST" action="{{ route('toros.store') }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -84,6 +84,15 @@
 										<input type="text" name="hijas_provadas" id="desendencia_provadas" class="form-control input-sm" >
 									</div>
 								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<label class="label">Tipo de Animal</label>
+									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
+										<option selected>Selecciones</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
+									</select>
+								</div>
 							</div>
 							
 							<div class="row">
@@ -101,17 +110,62 @@
 								</div>
 							</div>
 							
-							<div class="row">		
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Tipo de Animal</label>
-									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
-										<option selected>Selecciones</option>
-										@foreach ($tipoAnimal as $animal)
-											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
-										@endforeach
-									</select>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_toro"
+                                                id="img_toro"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Toro"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
 								</div>
 							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_toro"
+												id="img_padre_toro"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_toro"
+												id="img_madre_toro"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<button class="btn btn-success">Guardar</button>
@@ -128,6 +182,7 @@
 </div>
   
 @endsection
+@section('page-js')
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>

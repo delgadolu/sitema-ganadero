@@ -31,6 +31,7 @@ Route::resource('sanidad', 'SanidadController');
 Route::resource('gestacion', 'GestacionController');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('toros_download', 'TorosController@download');
 // TypeUaeer
 //Route::view('type_user', 'type_user.type_user_index')->name('TypeUser');
 // Route::view('/', 'starter')->name('starter');
