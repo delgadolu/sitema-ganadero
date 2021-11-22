@@ -191,11 +191,10 @@ class TorosController extends Controller
     public function download()
     {
         $toros = Toros::orderBy('id','DESC')->get(); 
-        //$pdf = app('dompdf.wrapper');
         $pdf = PDF::loadView('toros.toros_report',['toros'=>$toros]);
 
-        //return $pdf->download('archivo.pdf');
-        return $pdf->stream('archivo.pdf');
+        return $pdf->download('reporte_toros.pdf');
+       
       
     }
 }
