@@ -11,6 +11,7 @@
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('nobillas.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="nobillas_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">
@@ -22,8 +23,8 @@
                   <th>Edad de la Novilla</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
-                  <th>Id de la vaca</th>
-                  <th>Id del toro</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
@@ -36,8 +37,8 @@
                     <td>{{$nobilla->edad_nobilla}}</td>
                     <td>{{$nobilla->peso_nacim}}</td>
                     <td>{{$nobilla->peso_destete}}</td>
-                    <td>{{$nobilla->vaca_id}}</td>
-                    <td>{{$nobilla->toro_id}}</td>
+                    <td>{{$nobilla->num_registro_papa}}</td>
+                    <td>{{$nobilla->num_registro_mama}}</td>
                     <td>{{$nobilla->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('NobillasController@edit', $nobilla->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>

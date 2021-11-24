@@ -29,7 +29,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('mautas.update',$Mautas->id) }}"  role="form">
+						<form method="POST" action="{{ route('mautas.update',$mautas->id) }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<input name="_method" type="hidden" value="PATCH">
 							<div class="row">
@@ -77,14 +77,14 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id de la Vaca</label>
-										<input type="text" name="vaca_id" id="vaca_id" class="form-control input-sm" value="{{$mautas->vaca_id}}">
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" value="{{$mautas->num_registro_papa}}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id del toro</label>
-										<input type="text" name="toro_id" id="toro_id" class="form-control input-sm" value="{{$mautas->toro_id}}">
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" value="{{$mautas->num_registro_mama}}">
 									</div>
 								</div>
 							</div>
@@ -101,6 +101,63 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_mauta"
+                                                id="img_mauta"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value="../../uploads/mautas/{{$mautas->img_mauta}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Mauta"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_mauta"
+												id="img_padre_mauta"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/mautas/{{$mautas->img_padre_mauta}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_mauta"
+												id="img_madre_mauta"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/mautas/{{$mautas->img_madre_mauta}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row">
  
 								<div class="col-xs-12 col-sm-12 col-md-12">

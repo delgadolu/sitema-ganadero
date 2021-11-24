@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Vacas;
 use App\TipoAnimal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class VacasController extends Controller
 {
@@ -47,10 +49,45 @@ class VacasController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+        $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required','num_registro_papa'=>'required', 'num_registro_mama'=>'required', 'tipo_animal_id'=>'required']);
 
-        Vacas::create($request->all());
+        $Vacas = Vacas::create($request->all());
+
+        if($request->hasFile('img_vaca')){
+            $nameVaca        = $Vacas->id.'_'.time().'_'.time().$request->num_registro.'.jpg';
+            $imgVaca         = $request->file('img_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgVaca->move($destinationPath, $nameVaca);
+
+            Vacas::where('id',$Vacas->id)->update([
+            'img_vaca'       => $nameVaca
+            ]);
+        }
+        if($request->hasFile('img_padre_vaca') ){
+            $nameVaca_padre  = $Vacas->id.'_'.time().'_'.$request->num_registro_papa.'.jpg';
+            $imgPadre        = $request->file('img_padre_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgPadre->move($destinationPath, $nameVaca_padre);
+
+            Vacas::where('id',$Vacas->id)->update([
+            
+            'img_padre_vaca' => $nameVaca_padre
+            
+            ]);
+        }
+        if ($request->hasFile('img_madre_vaca')) {
+            $nameVaca_madre  = $Vacas->id.'_'.time().'_'.time().$request->num_registro_mama.'.jpg'; 
+            $imgMadre        = $request->file('img_madre_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgMadre->move($destinationPath, $nameVaca_madre);
+
+            Vacas::where('id',$Vacas->id)->update([
+            'img_madre_vaca' => $nameVaca_madre
+            ]);
+        }
+
         return redirect()->route('Vacas.index')->with('success','Registro creado satisfactoriamente');
+
     }
 
     /**
@@ -94,9 +131,57 @@ class VacasController extends Controller
     public function update(Request $request, $id)
     {
         //
-         $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required', 'tipo_animal_id'=>'required']);
+         $this->validate($request,[ 'num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_vaca'=>'required', 'edad_vaca'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_primer_servi'=>'required', 'edad_servi'=>'required', 'num_partos'=>'required', 'hijas_provadas'=>'required','num_registro_papa'=>'required', 'num_registro_mama'=>'required', 'tipo_animal_id'=>'required']);
  
+        $vaca = Vacas::find($id);
         Vacas::find($id)->update($request->all());
+
+        if($request->hasFile('img_vaca')){
+            $dirimgs = public_path().'/uploads/'.$vaca->img_vaca;
+
+            if(File::exists($dirimgs)) {
+                File::delete($dirimgs); 
+            }
+            $nameVaca        = $id.'_'.time().$request->num_registro.'.jpg';
+            $imgVaca         = $request->file('img_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgToro->move($destinationPath, $nameVaca);
+            Vacas::where('id',$id)->update([
+                'img_vaca'       => $nameVaca
+            ]);
+    
+        }
+        if($request->hasFile('img_padre_vaca') ){
+            $dirimgs = public_path().'/uploads/'.$vaca->img_padre_vaca;
+
+            if(File::exists($dirimgs)) {
+                File::delete($dirimgs); 
+            }
+            $nameVaca_padre  = $id.'_'.time().'_'.$request->num_registro_papa.'.jpg';
+            $imgPadre        = $request->file('img_padre_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgPadre->move($destinationPath, $nameVaca_padre);
+            Vacas::where('id',$id)->update([
+                'img_padre_vaca' => $nameVaca_padre
+            ]);
+    
+        }
+        if ($request->hasFile('img_madre_vaca')) {
+            $dirimgs = public_path().'/uploads/'.$vaca->img_madre_vaca;
+
+            if(File::exists($dirimgs)) {
+                File::delete($dirimgs); 
+            }
+            $nameVaca_madre  = $id.'_'.time().'_'.time().$request->num_registro_mama.'.jpg'; 
+            $imgMadre        = $request->file('img_madre_vaca');
+            $destinationPath = public_path('uploads\Vacas');
+            $imgMadre->move($destinationPath, $nameVaca_madre);
+            Vacas::where('id',$id)->update([
+                'img_madre_vaca' => $nameVaca_madre
+            ]);
+    
+        }
+
         return redirect()->route('Vacas.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
@@ -111,5 +196,15 @@ class VacasController extends Controller
         //
         Vacas::find($id)->delete();
         return redirect()->route('Vacas.index')->with('success','Registro eliminado satisfactoriamente');
+    }
+
+    public function download()
+    {
+        $vacas = Vacas::orderBy('id','DESC')->get(); 
+        $pdf = PDF::loadView('Vacas.Vacas_report',['vacas'=>$vacas]);
+
+        return $pdf->download('reporte_vacas.pdf');
+       
+      
     }
 }

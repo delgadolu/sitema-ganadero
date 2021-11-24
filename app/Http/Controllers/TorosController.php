@@ -57,25 +57,30 @@ class TorosController extends Controller
             $imgToro         = $request->file('img_toro');
             $destinationPath = public_path('uploads\toros');
             $imgToro->move($destinationPath, $nameToro);
+            Toros::where('id',$Toros->id)->update([
+            'img_toro'       => $nameToro
+        ]);
         }
         if($request->hasFile('img_padre_toro') ){
             $nameToro_padre  = $Toros->id.'_'.time().'_'.$request->num_registro_papa.'.jpg';
             $imgPadre        = $request->file('img_padre_toro');
             $destinationPath = public_path('uploads\toros');
             $imgPadre->move($destinationPath, $nameToro_padre);
+            Toros::where('id',$Toros->id)->update([
+            'img_padre_toro' => $nameToro_padre
+        ]);
         }
         if ($request->hasFile('img_madre_toro')) {
             $nameToro_madre  = $Toros->id.'_'.time().'_'.time().$request->num_registro_mama.'.jpg'; 
             $imgMadre        = $request->file('img_madre_toro');
             $destinationPath = public_path('uploads\toros');
             $imgMadre->move($destinationPath, $nameToro_madre);
+
+            Toros::where('id',$Toros->id)->update([
+            'img_madre_toro' => $nameToro_madre
+            ]);
         }
 
-        Toros::where('id',$Toros->id)->update([
-            'img_toro'       => $nameToro,
-            'img_padre_toro' => $nameToro_padre,
-            'img_madre_toro' => $nameToro_madre,
-        ]);
         return redirect()->route('toros.index')->with('success','Registro creado satisfactoriamente');
 
     }

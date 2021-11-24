@@ -29,7 +29,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('toretes.store') }}"  role="form">
+						<form method="POST" action="{{ route('toretes.store') }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -44,69 +44,120 @@
 										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker">
 									</div>
 								</div>
+							</div>
 
-							</div>
-							<div class="form-group">
-								<label class="label">Nombre del Torete</label>
-								<input type="text" name="nombre_torete" id="nombre_torete" class="form-control input-sm">
-							</div>
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Edad del Torete</label>
-										<input type="text" name="edad_torete" id="edad_torete" class="form-control input-sm">
+										<label class="label">Nombre del Torete</label>
+										<input type="text" name="nombre_torete" id="nombre_torete" class="form-control input-sm" >
 									</div>
 								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Edad del Torete</label>
+										<input type="text" name="edad_torete" id="edad_torete" class="form-control input-sm" >
+									</div>
+								</div>		
+							</div>
+							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso Al Nacimiento</label>
 										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
 									</div>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso al Destete</label>
-										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm">
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-									<label class="label">Id de la Vaca</label>
-										<select class="form-control" name="vaca_id" id="vaca_id">
-											<option selected>Selecciones</option>
-											@foreach ($vacas as $vaca)
-												<option value={{$vaca->id}}>{{$vaca->nombre_vaca}}</option>
-											@endforeach
-										</select>
+										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" >
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id del Toro</label>
-										<select class="form-control" name="toro_id" id="toro_id">
-											<option selected>Selecciones</option>
-											@foreach ($toros as $toro)
-												<option value={{$toro->id}}>{{$toro->nombre_toro}}</option>
-											@endforeach
-										</select>
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" >
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Tipo de Animal</label>
-										<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
-											<option selected>Selecciones</option>
-											<option value="1">Animal de Leche</option>
-											<option value="2">Animal de Carne</option>
-											<option value="3">Animal Doble proposito</option>
-										</select>
-									</div>	
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" >
+									</div>
 								</div>
 							</div>
+							
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<label class="label">Tipo de Animal</label>
+									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
+										<option selected>Selecciones</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_torete"
+                                                id="img_torete"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Torete"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_torete"
+												id="img_padre_torete"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_torete"
+												id="img_madre_torete"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<button class="btn btn-success">Guardar</button>
@@ -137,3 +188,32 @@
 	});
 </script> 
 @endsection
+
+<!--
+
+							<div class="row">	
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+									<label class="label">Id de la Vaca</label>
+										<select class="form-control" name="vaca_id" id="vaca_id">
+											<option selected>Selecciones</option>
+											@foreach ($vacas as $vaca)
+												<option value={{$vaca->id}}>{{$vaca->nombre_vaca}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Id del Toro</label>
+										<select class="form-control" name="toro_id" id="toro_id">
+											<option selected>Selecciones</option>
+											@foreach ($toros as $toro)
+												<option value={{$toro->id}}>{{$toro->nombre_toro}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+							</div>	
+
+-->

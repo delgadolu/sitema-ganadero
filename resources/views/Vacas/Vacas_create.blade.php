@@ -28,7 +28,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('Vacas.store') }}"  role="form">
+						<form method="POST" action="{{ route('Vacas.store') }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -110,6 +110,77 @@
 									</select>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" >
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" >
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_vaca"
+                                                id="img_vaca"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Vaca"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_vaca"
+												id="img_padre_vaca"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_vaca"
+												id="img_madre_vaca"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12 my-4">
 									<button class="btn btn-success">Guardar</button>
@@ -125,6 +196,7 @@
 	</section>
 </div>
 @endsection
+@section('page-js')
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>

@@ -3,9 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
 
-class Toros extends Model
+class Toros extends Model implements Auditable
 {
+    use AuditableTrait;
+
+    protected $guarded   = [];
+    
     public $timestamps   = false;
     protected $table     = "toros";
     protected $fillable  = [

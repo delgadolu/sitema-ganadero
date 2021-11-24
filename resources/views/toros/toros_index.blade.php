@@ -1,13 +1,13 @@
 @extends('layouts.master')
 @section('page-css')
-@section("titulo", "Lista toros")
+@section("titulo", "Lista Toros")
 @section('main-content')
 <div class="row">
   <section class="content card p-4">
       <div class="col-md-12 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="pull-left"><h3>Lista toros</h3></div>
+            <div class="pull-left"><h3>Lista Toros</h3></div>
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('toros.create') }}" class="btn btn-primary" >Agregar</a>

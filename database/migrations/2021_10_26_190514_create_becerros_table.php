@@ -23,9 +23,9 @@ class CreateBecerrosTable extends Migration
             $table->float('peso_destete');
             $table->string('num_registro_papa');
             $table->string('num_registro_mama');
-            $table->string('img_becerro');
-            $table->string('img_padre_becerro');
-            $table->string('img_madre_becerro');
+            $table->string('img_becerro')->nullable();
+            $table->string('img_padre_becerro')->nullable();
+            $table->string('img_madre_becerro')->nullable();
             $table->integer('vaca_id')->unsigned();
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->integer('toro_id')->unsigned();

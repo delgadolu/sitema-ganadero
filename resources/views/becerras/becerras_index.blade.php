@@ -11,6 +11,7 @@
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('becerras.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="becerras_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">
@@ -22,8 +23,8 @@
                   <th>Edad de la Becerra</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
-                  <th>Id de la vaca</th>
-                  <th>Id del toro</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
@@ -36,8 +37,8 @@
                     <td>{{$becerra->edad_becerra}}</td>
                     <td>{{$becerra->peso_nacim}}</td>
                     <td>{{$becerra->peso_destete}}</td>
-                    <td>{{$becerra->vaca_id}}</td>
-                    <td>{{$becerra->toro_id}}</td>
+                    <td>{{$becerra->num_registro_papa}}</td>
+                    <td>{{$becerra->nun_registro_mama}}</td>
                     <td>{{$becerra->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('BecerrasController@edit', $becerra->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>

@@ -29,7 +29,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('becerras.store') }}"  role="form">
+						<form method="POST" action="{{ route('becerras.store') }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
@@ -44,57 +44,120 @@
 										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker">
 									</div>
 								</div>
+							</div>
 
-							</div>
-							<div class="form-group">
-								<label class="label">Nombre de la Becerra</label>
-								<input type="text" name="nombre_becerra" id="nombre_becerra" class="form-control input-sm">
-							</div>
 							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Nombre de la Becerra</label>
+										<input type="text" name="nombre_becerra" id="nombre_becerra" class="form-control input-sm" >
+									</div>
+								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Edad de la Becerra</label>
-										<input type="text" name="edad_becerra" id="edad_becerra" class="form-control input-sm">
+										<input type="text" name="edad_becerra" id="edad_becerra" class="form-control input-sm" >
 									</div>
-								</div>
+								</div>		
+							</div>
+							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Peso Al Nacimiento</label>
 									<div class="form-group">
+										<label class="label">Peso Al Nacimiento</label>
 										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
 									</div>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso al Destete</label>
-										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm">
-									</div>
-								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Id de la Vaca</label>
-									<div class="form-group">
-										<input type="text" name="vaca_id" id="vaca_id" class="form-control input-sm">
+										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" >
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id del Toro</label>
-										<input type="text" name="toro_id" id="toro_id" class="form-control input-sm">
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" >
 									</div>
 								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" >
+									</div>
+								</div>
+							</div>
+							
+							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<label class="label">Tipo de Animal</label>
 									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
-										<option value="1">Animal de Leche</option>
-										<option value="2">Animal de Carne</option>
-										<option value="3">Animal Doble proposito</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_becerra"
+                                                id="img_becerra"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Becerra"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_becerra"
+												id="img_padre_becerra"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_becerra"
+												id="img_madre_becerra"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value=""
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
+
 							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<button class="btn btn-success">Guardar</button>
@@ -125,3 +188,21 @@
 	});
 </script> 
 @endsection
+
+<!--
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Id del Toro</label>
+										<input type="text" name="toro_id" id="toro_id" class="form-control input-sm">
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<label class="label">Id de la Vaca</label>
+									<div class="form-group">
+										<input type="text" name="vaca_id" id="vaca_id" class="form-control input-sm">
+									</div>
+								</div>
+							</div>	 
+-->

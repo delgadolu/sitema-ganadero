@@ -58,7 +58,7 @@
     </style>
     <div class="page-break">
             <header>
-                Reporte de Toros 
+                Reporte de Becerras 
             </header>
 
             <footer>
@@ -69,29 +69,25 @@
             <tr>
                 <th>Numero de Registro</th>
                 <th>Fecha de Nacimiento</th>
-                <th>Nombre del Toro</th>
-                <th>Edad del Toro</th>
+                <th>Nombre de la Becerra</th>
+                <th>Edad de la Becerra</th>
                 <th>Peso de Nacimiento</th>
                 <th>Peso al Destetar</th>
-                <th>Peso de Inclusion al Servicio</th>
-                <th>Hijas Provadas</th>
                 <th>Numero de Registro del Padre</th>
                 <th>Numero de Registro de la Madre</th>
             </tr>
             <tbody>
-                @if($toros->count())  
-                @foreach($toros as $toro)  
+                @if($becerras->count())  
+                @foreach($becerras as $becerra)  
                 <tr>
-                    <td>{{$toro->num_registro}}</td>
-                    <td>{{$toro->fecha_nacim}}</td>
-                    <td>{{$toro->nombre_toro}}</td>
-                    <td>{{$toro->edad_toro}}</td>
-                    <td>{{$toro->peso_nacim}}</td>
-                    <td>{{$toro->peso_destete}}</td>
-                    <td>{{$toro->peso_inclu_servi}}</td>
-                    <td>{{$toro->hijas_provadas}}</td>
-                    <td>{{$toro->num_registro_papa}}</td>
-                    <td>{{$toro->num_registro_mama}}</td>
+                    <td>{{$becerra->num_registro}}</td>
+                    <td>{{$becerra->fecha_nacim}}</td>
+                    <td>{{$becerra->nombre_becerra}}</td>
+                    <td>{{$becerra->edad_becerra}}</td>
+                    <td>{{$becerra->peso_nacim}}</td>
+                    <td>{{$becerra->peso_destete}}</td>
+                    <td>{{$becerra->num_registro_papa}}</td>
+                    <td>{{$becerra->num_registro_mama}}</td>
                 </tr>
                 @endforeach 
                 @else

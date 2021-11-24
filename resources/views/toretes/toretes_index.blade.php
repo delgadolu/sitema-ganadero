@@ -11,6 +11,7 @@
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('toretes.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="toretes_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">
@@ -22,8 +23,8 @@
                   <th>Edad del Torete</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
-                  <th>Id de la vaca</th>
-                  <th>Id del toro</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
@@ -36,9 +37,9 @@
                     <td>{{$torete->edad_torete}}</td>
                     <td>{{$torete->peso_nacim}}</td>
                     <td>{{$torete->peso_destete}}</td>
-                    <td>{{$torete->vaca_id}}</td>
-                    <td>{{$torete->toro_id}}</td>
-                    <tdtoreteipo_animal_id}}</td>
+                    <td>{{$torete->num_registro_papa}}</td>
+                    <td>{{$torete->num_registro_mama}}</td>
+                    <td>{{$torete->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('ToretesController@edit', $torete->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>
                       <form action="{{action('ToretesController@destroy', $torete->id)}}" method="post">

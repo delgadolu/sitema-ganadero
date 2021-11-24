@@ -7,10 +7,12 @@
       <div class="col-md-12 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
-            <div class="pull-left"><h3>Lista de Vacas</h3></div>
+            <div class="pull-left"><h3>Lista Vacas</h3></div>
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
-                <a href="{{ route('Vacas.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="{{ route('Vacas.create') }}" class="btn btn-primary" >
+                Agregar</a>
+                <a href="Vacas_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">
@@ -26,6 +28,8 @@
                   <th>Edad al Servicio</th>
                   <th>Numero de Partos</th>
                   <th>Hijas Provadas</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
                   <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
@@ -43,6 +47,8 @@
                     <td>{{$vaca->edad_servi}}</td>
                     <td>{{$vaca->num_partos}}</td>
                     <td>{{$vaca->hijas_provadas}}</td>
+                    <td>{{$vaca->num_registro_papa}}</td>
+                    <td>{{$vaca->num_registro_mama}}</td>
                     <td>{{$vaca->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('VacasController@edit', $vaca->id)}}" > <i class="nav-icon i-Pen-5"></i>  </a></td>
                     <td>

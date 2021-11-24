@@ -58,7 +58,7 @@
     </style>
     <div class="page-break">
             <header>
-                Reporte de Toros 
+                Reporte de Mautas 
             </header>
 
             <footer>
@@ -69,29 +69,25 @@
             <tr>
                 <th>Numero de Registro</th>
                 <th>Fecha de Nacimiento</th>
-                <th>Nombre del Toro</th>
-                <th>Edad del Toro</th>
+                <th>Nombre de la Mauta</th>
+                <th>Edad de la Mauta</th>
                 <th>Peso de Nacimiento</th>
                 <th>Peso al Destetar</th>
-                <th>Peso de Inclusion al Servicio</th>
-                <th>Hijas Provadas</th>
                 <th>Numero de Registro del Padre</th>
                 <th>Numero de Registro de la Madre</th>
             </tr>
             <tbody>
-                @if($toros->count())  
-                @foreach($toros as $toro)  
+                @if($mautas->count())  
+                @foreach($mautas as $mauta)  
                 <tr>
-                    <td>{{$toro->num_registro}}</td>
-                    <td>{{$toro->fecha_nacim}}</td>
-                    <td>{{$toro->nombre_toro}}</td>
-                    <td>{{$toro->edad_toro}}</td>
-                    <td>{{$toro->peso_nacim}}</td>
-                    <td>{{$toro->peso_destete}}</td>
-                    <td>{{$toro->peso_inclu_servi}}</td>
-                    <td>{{$toro->hijas_provadas}}</td>
-                    <td>{{$toro->num_registro_papa}}</td>
-                    <td>{{$toro->num_registro_mama}}</td>
+                    <td>{{$mauta->num_registro}}</td>
+                    <td>{{$mauta->fecha_nacim}}</td>
+                    <td>{{$mauta->nombre_mauta}}</td>
+                    <td>{{$mauta->edad_mauta}}</td>
+                    <td>{{$mauta->peso_nacim}}</td>
+                    <td>{{$mauta->peso_destete}}</td>
+                    <td>{{$mauta->num_registro_papa}}</td>
+                    <td>{{$mauta->num_registro_mama}}</td>
                 </tr>
                 @endforeach 
                 @else

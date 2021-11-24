@@ -29,7 +29,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('toros.update',$toros->id) }}"  role="form">
+						<form method="POST" action="{{ route('toros.update',$toros->id) }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<input name="_method" type="hidden" value="PATCH">
 							<div class="row">
@@ -189,6 +189,7 @@
 	</section>
 </div>
 @endsection
+@section('page-js')
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>

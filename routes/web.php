@@ -19,6 +19,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('type_user', 'TypeUsersController');
 Route::resource('Tipo_Animal', 'TipoAnimalController');
+Route::resource('finca', 'FincaController');
+Route::resource('sanidad', 'SanidadController');
+Route::resource('gestacion', 'GestacionController');
 Route::resource('toros', 'TorosController');
 Route::resource('Vacas', 'VacasController');
 Route::resource('becerros', 'BecerrosController');
@@ -26,12 +29,15 @@ Route::resource('becerras', 'BecerrasController');
 Route::resource('toretes', 'ToretesController');
 Route::resource('mautas', 'MautasController');
 Route::resource('nobillas', 'NobillasController');
-Route::resource('finca', 'FincaController');
-Route::resource('sanidad', 'SanidadController');
-Route::resource('gestacion', 'GestacionController');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('toros_download', 'TorosController@download');
+Route::get('Vacas_download', 'VacasController@download');
+Route::get('toretes_download', 'ToretesController@download');
+Route::get('nobillas_download', 'NobillasController@download');
+Route::get('mautas_download', 'MautasController@download');
+Route::get('becerros_download', 'BecerrosController@download');
+Route::get('becerras_download', 'BecerrasController@download');
 // TypeUaeer
 //Route::view('type_user', 'type_user.type_user_index')->name('TypeUser');
 // Route::view('/', 'starter')->name('starter');

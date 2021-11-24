@@ -11,6 +11,7 @@
             <div class="pull-right">
               <div class="btn-group my-2 float-right">
                 <a href="{{ route('mautas.create') }}" class="btn btn-primary" >Agregar</a>
+                <a href="mautas_download" class="btn btn-success mx-2" >Reporte</a>
               </div>
             </div>
             <div class="table-container">
@@ -22,8 +23,8 @@
                   <th>Edad de la Mauta</th>
                   <th>Peso de Nacimiento</th>
                   <th>Peso al Destetar</th>
-                  <th>Id de la vaca</th>
-                  <th>Id del toro</th>
+                  <th>Numero de Registro del Padre</th>
+                  <th>Numero de Registro del Madre</th>
                   <th>Tipo de Animal</th>
                 </thead>
                 <tbody>
@@ -36,8 +37,8 @@
                     <td>{{$mauta->edad_mauta}}</td>
                     <td>{{$mauta->peso_nacim}}</td>
                     <td>{{$mauta->peso_destete}}</td>
-                    <td>{{$mauta->vaca_id}}</td>
-                    <td>{{$mauta->toro_id}}</td>
+                    <td>{{$mauta->num_registro_papa}}</td>
+                    <td>{{$mauta->num_registro_mama}}</td>
                     <td>{{$mauta->tipo_animal_id}}</td>
                     <td><a class="btn btn-primary btn-xs" href="{{action('MautasController@edit', $mauta->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td>

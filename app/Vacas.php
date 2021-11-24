@@ -3,9 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
 
-class Vacas extends Model
+class Vacas extends Model implements Auditable
 {
+    use AuditableTrait;
+
+    protected $guarded   = [];
+    
     public $timestamps   = false;
     protected $table     = "Vacas";
     protected $fillable  = [
@@ -19,6 +25,11 @@ class Vacas extends Model
         'edad_servi',
         'num_partos',
         'hijas_provadas',
-        'tipo_animal_id'
+        'num_registro_papa',
+        'num_registro_mama', 
+        'tipo_animal_id',
+        'img_vaca',
+        'img_padre_vaca',
+        'img_madre_vaca'
     ];
 }

@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
-@extends('layouts.layout')
-@section('content')
+@extends('layouts.master')
+@section('page-css')
+@section("titulo", "Registrar Becerros")
+@section('main-content')
 <div class="row">
 	<section class="content">
 		<div class="col-md-12 col-md-offset-2">
@@ -27,7 +29,7 @@
 				</div>
 				<div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('becerras.update',$becerras->id) }}"  role="form">
+						<form method="POST" action="{{ route('becerras.update',$becerras->id) }}"  role="form" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<input name="_method" type="hidden" value="PATCH">
 							<div class="row">
@@ -75,14 +77,14 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id de la Vaca</label>
-										<input type="text" name="vaca_id" id="vaca_id" class="form-control input-sm" value="{{$becerras->vaca_id}}">
+										<label class="label">Numero de Registro del Padre</label>
+										<input type="text" name="num_registro_papa" id="num_registro_papa" class="form-control input-sm" value="{{$becerras->num_registro_papa}}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<label class="label">Id del Toro</label>
-										<input type="text" name="toro_id" id="toro_id" class="form-control input-sm" value="{{$becerras->toro_id}}">
+										<label class="label">Numero de Registro de la Madre</label>
+										<input type="text" name="num_registro_mama" id="num_registro_mama" class="form-control input-sm" value="{{$becerras->num_registro_mama}}">
 									</div>
 								</div>
 							</div>
@@ -94,8 +96,64 @@
 									</div>
 								</div>
 							</div>
+
 							<div class="row">
- 
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+								<div class="input-group">
+                                        <div class="custom-file-image">
+                                            <input type="file"
+                                                name="img_becerra"
+                                                id="img_becerra"
+                                                class="custom-file-input"
+                                                data-required="false"
+                                                data-value="../../uploads/becerras/{{$becerras->img_becerra}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Becerra"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+                                                />
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_padre_becerra"
+												id="img_padre_becerra"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/becerras/{{$becerras->img_padre_becerra}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen del Padre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
+									<div class="input-group">
+										<div class="custom-file-image">
+											<input type="file"
+												name="img_madre_becerra"
+												id="img_madre_becerra"
+												class="custom-file-input"
+												data-required="false"
+                                                data-value="../../uploads/becerras/{{$becerras->img_madre_becerra}}"
+                                                data-extensions="image"
+                                                data-suggested-dimensions="200x100"
+                                                data-description="imagen de la Madre"
+                                                data-default="{{asset('assets/images/noLogo.png')}}"
+												/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<input type="submit"  value="Actualizar" class="btn btn-success btn-block">
 									<a href="{{ route('becerras.index') }}" class="btn btn-info btn-block" >Atrás</a>

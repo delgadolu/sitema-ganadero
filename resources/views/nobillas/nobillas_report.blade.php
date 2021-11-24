@@ -58,7 +58,7 @@
     </style>
     <div class="page-break">
             <header>
-                Reporte de Toros 
+                Reporte de Nobillas 
             </header>
 
             <footer>
@@ -73,25 +73,21 @@
                 <th>Edad del Toro</th>
                 <th>Peso de Nacimiento</th>
                 <th>Peso al Destetar</th>
-                <th>Peso de Inclusion al Servicio</th>
-                <th>Hijas Provadas</th>
                 <th>Numero de Registro del Padre</th>
                 <th>Numero de Registro de la Madre</th>
             </tr>
             <tbody>
-                @if($toros->count())  
-                @foreach($toros as $toro)  
+                @if($nobillas->count())  
+                @foreach($nobillas as $nobilla)  
                 <tr>
-                    <td>{{$toro->num_registro}}</td>
-                    <td>{{$toro->fecha_nacim}}</td>
-                    <td>{{$toro->nombre_toro}}</td>
-                    <td>{{$toro->edad_toro}}</td>
-                    <td>{{$toro->peso_nacim}}</td>
-                    <td>{{$toro->peso_destete}}</td>
-                    <td>{{$toro->peso_inclu_servi}}</td>
-                    <td>{{$toro->hijas_provadas}}</td>
-                    <td>{{$toro->num_registro_papa}}</td>
-                    <td>{{$toro->num_registro_mama}}</td>
+                    <td>{{$nobilla->num_registro}}</td>
+                    <td>{{$->fecha_nacim}}</td>
+                    <td>{{$nobilla->nombre_nobilla}}</td>
+                    <td>{{$nobilla->edad_nobilla}}</td>
+                    <td>{{$nobilla->peso_nacim}}</td>
+                    <td>{{$nobilla->peso_destete}}</td>
+                    <td>{{$nobilla->num_registro_papa}}</td>
+                    <td>{{$nobilla->num_registro_mama}}</td>
                 </tr>
                 @endforeach 
                 @else

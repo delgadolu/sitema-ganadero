@@ -30,7 +30,7 @@ class CreateTorosTable extends Migration
             $table->string('img_madre_toro')->nullable();
             $table->integer('tipo_animal_id')->unsigned();
             $table->foreign('tipo_animal_id')->references('id')->on('tipo_animal');
-            //$table->foreignId('id_tipo')->constrained('tipo_animal')->onDelete('cascade')->onUpdate('cascade');
+            
         });
     }
 

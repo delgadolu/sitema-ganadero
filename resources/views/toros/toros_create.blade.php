@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
 @extends('layouts.master')
 @section('page-css')
 @section("titulo", "Registrar Toros")
@@ -43,58 +44,52 @@
 										<input type="text" name="fecha_nacim" id="fecha_nacim" class="form-control input-sm datetimepicker" >
 									</div>
 								</div>
+							</div>
 
-							</div>
-							<div class="form-group">
-								<label class="label">Nombre del Toro</label>
-								<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm" >
-							</div>
 							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Nombre del Toro</label>
+										<input type="text" name="nombre_toro" id="nombre_toro" class="form-control input-sm" >
+									</div>
+								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Edad del Toro</label>
 										<input type="text" name="edad_toro" id="edad_toro" class="form-control input-sm" >
 									</div>
-								</div>
+								</div>		
+							</div>
+							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Peso Al Nacimiento</label>
 									<div class="form-group">
+										<label class="label">Peso Al Nacimiento</label>
 										<input type="text" name="peso_nacim" id="peso_nacim" class="form-control input-sm" >
 									</div>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Peso al Destete</label>
 										<input type="text" name="peso_destete" id="peso_destete" class="form-control input-sm" >
 									</div>
 								</div>
+							</div>
+
+							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Peso de Inclusion al Servicio</label>
 									<div class="form-group">
+										<label class="label">Peso de Inclusion al Servicio</label>
 										<input type="text" name="peso_inclu_servi" id="peso_inclu_servi" class="form-control input-sm" >
 									</div>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Hijas Provadas</label>
 										<input type="text" name="hijas_provadas" id="desendencia_provadas" class="form-control input-sm" >
 									</div>
 								</div>
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<label class="label">Tipo de Animal</label>
-									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
-										<option selected>Selecciones</option>
-										@foreach ($tipoAnimal as $animal)
-											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
-										@endforeach
-									</select>
-								</div>
 							</div>
-							
+
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
@@ -109,6 +104,19 @@
 									</div>
 								</div>
 							</div>
+							
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<label class="label">Tipo de Animal</label>
+									<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
+										<option selected>Selecciones</option>
+										@foreach ($tipoAnimal as $animal)
+											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+							
 							
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6 my-3">
