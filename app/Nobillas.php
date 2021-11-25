@@ -26,6 +26,8 @@ class Nobillas extends Model implements Auditable
         'tipo_animal_id',
         'img_nobilla',
         'img_padre_nobilla',
-        'img_madre_nobilla'
+        'img_madre_nobilla',
+        'vaca_id',
+        'toro_id'
     ];
 }

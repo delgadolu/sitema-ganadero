@@ -26,6 +26,7 @@
                   <th>Numero de Registro del Padre</th>
                   <th>Numero de Registro de la Madre</th>
                   <th>Tipo de Animal</th>
+                  <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
                 <tbody>
                   @if($becerras->count())  
@@ -38,15 +39,14 @@
                     <td>{{$becerra->peso_nacim}}</td>
                     <td>{{$becerra->peso_destete}}</td>
                     <td>{{$becerra->num_registro_papa}}</td>
-                    <td>{{$becerra->nun_registro_mama}}</td>
+                    <td>{{$becerra->num_registro_mama}}</td>
                     <td>{{$becerra->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrasController@edit', $becerra->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('BecerrasController@edit', $becerra->id)}}" ><i class="nav-icon i-Pen-5"></i></span></a></td>
                     <td>
                       <form action="{{action('BecerrasController@destroy', $becerra->id)}}" method="post">
                       {{csrf_field()}}
                       <input name="_method" type="hidden" value="DELETE">
-    
-                      <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                      <button class="btn btn-danger btn-xs" type="submit"><i class="nav-icon i-Close-Window"></i></span></button>
                     </td>
                   </tr>
                   @endforeach 

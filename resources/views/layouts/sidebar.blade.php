@@ -106,24 +106,9 @@
             </li>
         </ul>
         <ul class="childNav" data-parent="reports">
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='imageCroper' ? 'open' : '' }}" href="{{route('imageCroper')}}">
-                    <i class="nav-icon i-Crop-2"></i>
-                    <span class="item-name">Reporte de Vacas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='loader' ? 'open' : '' }}" href="{{route('loader')}}">
-                    <i class="nav-icon i-Loading-3"></i>
-                    <span class="item-name">Reporte de Hijos de Vacas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='laddaButton' ? 'open' : '' }}" href="{{route('laddaButton')}}">
-                    <i class="nav-icon i-Loading-2"></i>
-                    <span class="item-name">Reporte de Toros</span>
-                </a>
-            </li>
+            <i class="nav-icon i-Crop-2"></i>
+            <i class="nav-icon i-Loading-3"></i>
+                
             <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='toastr' ? 'open' : '' }}" href="{{route('toastr')}}">
                     <i class="nav-icon i-Bell"></i>

@@ -12,6 +12,7 @@ class Becerras extends Model implements Auditable
 
     protected $guarded   = [];
     
+    public $timestamps   = false;
     protected $table     = "becerras";
     protected $fillable  = [
         'num_registro', 

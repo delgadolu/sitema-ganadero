@@ -23,9 +23,9 @@ class CreateToretesTable extends Migration
             $table->float('peso_destete');
             $table->string('num_registro_papa');
             $table->string('num_registro_mama');
-            $table->string('img_torete');
-            $table->string('img_padre_torete');
-            $table->string('img_madre_torete');
+            $table->string('img_torete')->nullable();
+            $table->string('img_padre_torete')->nullable();
+            $table->string('img_madre_torete')->nullable();
             $table->integer('vaca_id')->unsigned();
             $table->foreign('vaca_id')->references('id')->on('vacas');
             $table->integer('toro_id')->unsigned();
