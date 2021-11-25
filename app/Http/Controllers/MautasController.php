@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Mautas;
+use App\Vacas;
+use App\Toros;
 use App\TipoAnimal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Vacas;
-use App\Toros;
 
 class MautasController extends Controller
 {
@@ -24,7 +24,7 @@ class MautasController extends Controller
     public function index()
     {
         //
-        $mautas = Mautas::orderBy('id','DESC')->paginate(3);
+        $mautas = Mautas::orderBy('id','DESC')->paginate(10);
         return view('mautas.mautas_index',compact('mautas')); 
     }
 
@@ -55,7 +55,7 @@ class MautasController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required','num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
+        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_mauta', 'edad_mauta'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required','num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
 
         $Mautas = Mautas::create($request->all());
 
@@ -116,11 +116,15 @@ class MautasController extends Controller
     {
         //
         $mautas= Mautas::find($id);
-
         $tipoAnimal = TipoAnimal::all();
+        $vacas = Vacas::all();
+        $toros = Toros::all();
 
         return view('mautas.mautas_edit', [
-            'tipoAnimal' => $tipoAnimal, 'mautas' => $mautas
+            'tipoAnimal' => $tipoAnimal, 
+            'mautas'     => $mautas,
+            'vacas'      => $vacas,
+            'toros'      => $toros
         ]);
     }
 
@@ -134,7 +138,7 @@ class MautasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required','num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
+        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_mauta', 'edad_mauta'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required','num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
 
         $mautas = Mautas::find($id);
         Mautas::find($id)->update($request->all());

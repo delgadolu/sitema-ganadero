@@ -6,7 +6,7 @@
 @section('main-content')
 <div class="row">
 	<section class="content">
-		<div class="col-md-8 col-md-offset-2">
+		<div class="col-md-12 col-md-offset-2">
 			@if (count($errors) > 0)
 			<div class="alert alert-danger">
 				<strong>Error!</strong> Revise los campos obligatorios.<br><br>
@@ -88,14 +88,41 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Vaca</label>
+										<select class="form-control" aria-label="vaca_id" name="vaca_id" id="vaca_id">
+										<option selected>Seleccione</option>
+										@foreach ($vacas as $vaca)
+											<option value={{$vaca->id}} <?php if ($mautas['vaca_id'] == $vaca['id']) echo "selected"?>>{{$vaca->nombre_vaca}}</option>
+										@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Toro</label>
+										<select class="form-control" aria-label="toro_id" name="toro_id" id="toro_id">
+										<option selected>Seleccione</option>
+										@foreach ($toros as $toro)
+											<option value={{$toro->id}} <?php if ($mautas['toro_id'] == $toro['id']) echo "selected"?>>{{$toro->nombre_toro}}</option>
+										@endforeach
+										</select>
+									</div>
+								</div>
+								
+							</div>
+
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<label class="label">Tipo de Animal</label>
-										<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
+										<select class="form-control" aria-label="tipo_animal_id" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
 										@foreach ($tipoAnimal as $animal)
-											<option value={{$animal->id}} <?php if ($vacas['tipo_animal_id'] == $animal['id']) echo "selected"?>>{{$animal->descripcion}}</option>
+											<option value={{$animal->id}} <?php if ($mautas['tipo_animal_id'] == $animal['id']) echo "selected"?>>{{$animal->descripcion}}</option>
 										@endforeach
 										</select>
 									</div>
@@ -173,6 +200,7 @@
 			</div>
 		</div>
 	</section>
+</div>
 @endsection
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

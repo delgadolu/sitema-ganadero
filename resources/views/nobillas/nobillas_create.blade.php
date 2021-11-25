@@ -93,14 +93,39 @@
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
+										<label class="label">Vaca</label>
+										<select class="form-control" name="vaca_id" id="vaca_id">
+											<option selected>Seleccione</option>
+											@foreach ($vacas as $vaca)
+												<option value={{$vaca->id}}>{{$vaca->nombre_vaca}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Toro</label>
+										<select class="form-control" name="toro_id" id="toro_id">
+											<option selected>Seleccione</option>
+											@foreach ($toros as $toro)
+												<option value={{$toro->id}}>{{$toro->nombre_toro}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
 										<label class="label">Tipo de Animal</label>
-										<select class="form-control" aria-label="tipo_animal" name="tipo_animal_id" id="tipo_animal_id">
+										<select class="form-control" aria-label="tipo_animal_id" name="tipo_animal_id" id="tipo_animal_id">
 										<option selected>Selecciones</option>
 										@foreach ($tipoAnimal as $animal)
 											<option value={{$animal->id}}>{{$animal->descripcion}}</option>
 										@endforeach
-									</select>
-									</div>	
+										</select>
+									</div>
 								</div>
 							</div>
 
@@ -176,7 +201,6 @@
 </div>
 
 @endsection
-@section('page-js')
 @section('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
@@ -193,31 +217,3 @@
 </script> 
 @endsection
 
-<!--
-							<div class="row">
-								<div class="col-xs-6 col-sm-6 col-md-6">
-									<div class="form-group">
-										<label class="label">Id del Toro</label>
-										<select class="form-control" name="toro_id" id="toro_id">
-											<option selected>Selecciones</option>
-											@foreach ($toros as $toro)
-												<option value={{$toro->id}}>{{$toro->nombre_toro}}</option>
-											@endforeach
-										</select>
-									</div>
-								</div>
-								
-								<div class="col-xs-6 col-sm-6 col-md-6">
-
-									<div class="form-group">
-										<label class="label">Id de la Vaca</label>
-										<select class="form-control" name="vaca_id" id="vaca_id">
-											<option selected>Selecciones</option>
-											@foreach ($vacas as $vaca)
-												<option value={{$vaca->id}}>{{$vaca->nombre_vaca}}</option>
-											@endforeach
-										</select>
-									</div>
-								</div>
-							</div>
-							-->

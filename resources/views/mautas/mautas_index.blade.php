@@ -26,6 +26,7 @@
                   <th>Numero de Registro del Padre</th>
                   <th>Numero de Registro del Madre</th>
                   <th>Tipo de Animal</th>
+                  <th colspan="2" class="text-center">Editar/Borrar</th>
                 </thead>
                 <tbody>
                   @if($mautas->count())  
@@ -40,13 +41,13 @@
                     <td>{{$mauta->num_registro_papa}}</td>
                     <td>{{$mauta->num_registro_mama}}</td>
                     <td>{{$mauta->tipo_animal_id}}</td>
-                    <td><a class="btn btn-primary btn-xs" href="{{action('MautasController@edit', $mauta->id)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a class="btn btn-primary btn-xs" href="{{action('MautasController@edit', $mauta->id)}}" ><i class="nav-icon i-Pen-5"></i></span></a></td>
                     <td>
                       <form action="{{action('MautasController@destroy', $mauta->id)}}" method="post">
                       {{csrf_field()}}
                       <input name="_method" type="hidden" value="DELETE">
     
-                      <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                      <button class="btn btn-danger btn-xs" type="submit"><i class="nav-icon i-Close-Window"></i></span></button>
                     </td>
                   </tr>
                   @endforeach 

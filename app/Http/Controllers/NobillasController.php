@@ -7,8 +7,8 @@ use App\TipoAnimal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Vacas;
 use App\Toros;
+use App\Vacas;
 
 class NobillasController extends Controller
 {
@@ -23,9 +23,10 @@ class NobillasController extends Controller
      */
     public function index()
     {
-        //
-        $nobillas = Nobillas::orderBy('id','DESC')->paginate(3);
-        return view('nobillas.nobillas_index',compact('nobillas')); 
+        $nobillas = Nobillas::orderBy('id','DESC')->paginate(10);;
+        return view('nobillas.nobillas_index',[
+            'nobillas' => $nobillas
+        ]); 
     }
 
     /**
@@ -39,10 +40,11 @@ class NobillasController extends Controller
         $tipoAnimal = TipoAnimal::all();
         $vacas = Vacas::all();
         $toros = Toros::all();
+
         return view('nobillas.nobillas_create',[
-            'vacas' => $vacas, 
-            'toros' => $toros,
-            'tipoAnimal' => $tipoAnimal
+            'tipoAnimal' => $tipoAnimal,
+            'vacas'      => $vacas, 
+            'toros'      => $toros
         ]);
     }
 
@@ -55,7 +57,7 @@ class NobillasController extends Controller
     public function store(Request $request)
     {
         //
-       $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_inclu_servi'=>'required','num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
+       $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
 
         $Nobillas = Nobillas::create($request->all());
 
@@ -115,13 +117,16 @@ class NobillasController extends Controller
     public function edit($id)
     {
         //
-        $nobillas=Nobillas::find($id);
-
+        $nobillas= Nobillas::find($id);
         $tipoAnimal = TipoAnimal::all();
+        $vacas = Vacas::all();
+        $toros = Toros::all();
 
         return view('nobillas.nobillas_edit', [
             'tipoAnimal' => $tipoAnimal, 
-            'nobillas'   => $nobillas
+            'nobillas'   => $nobillas,
+            'vacas'      => $vacas,
+            'toros'      => $toros
         ]);
 
     }
@@ -136,7 +141,7 @@ class NobillasController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'peso_inclu_servi'=>'required','num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
+        $this->validate($request,['num_registro'=>'required', 'fecha_nacim'=>'required', 'nombre_nobilla', 'edad_nobilla'=>'required', 'peso_nacim'=>'required', 'peso_destete'=>'required', 'num_registro_papa'=>'required' ,'num_registro_mama'=>'required',  'tipo_animal_id'=>'required']);
 
         $nobilla = Nobillas::find($id);
         Nobillas::find($id)->update($request->all());

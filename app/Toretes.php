@@ -25,7 +25,7 @@ class Toretes extends Model implements Auditable
         'num_registro_mama', 
         'tipo_animal_id',
         'img_torete',
-        'img_padre_torte',
+        'img_padre_torete',
         'img_madre_torete',
         'vaca_id',
         'toro_id'

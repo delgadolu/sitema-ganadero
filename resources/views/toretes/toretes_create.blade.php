@@ -89,6 +89,31 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Vaca</label>
+										<select class="form-control" name="vaca_id" id="vaca_id">
+											<option selected>Seleccione</option>
+											@foreach ($vacas as $vaca)
+												<option value={{$vaca->id}}>{{$vaca->nombre_vaca}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<label class="label">Toro</label>
+										<select class="form-control" name="toro_id" id="toro_id">
+											<option selected>Seleccione</option>
+											@foreach ($toros as $toro)
+												<option value={{$toro->id}}>{{$toro->nombre_toro}}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+							</div>
 							
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">

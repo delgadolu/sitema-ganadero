@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Toretes;
+use App\Vacas;
+use App\Toros;
 use App\TipoAnimal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Vacas;
-use App\Toros;
 
 class ToretesController extends Controller
 {
@@ -24,7 +24,7 @@ class ToretesController extends Controller
     public function index()
     {
         //
-        $toretes = Toretes::orderBy('id','DESC')->paginate(3);
+        $toretes = Toretes::orderBy('id','DESC')->paginate(10);
         return view('toretes.toretes_index',compact('toretes')); 
     }
 
@@ -38,14 +38,13 @@ class ToretesController extends Controller
         //
 
         $tipoAnimal = TipoAnimal::all();
-
-        return view('toretes.toretes_create', [
-            'tipoAnimal' => $tipoAnimal
-        ]);
-
         $vacas = Vacas::all();
         $toros = Toros::all();
-        return view('toretes.toretes_create',['vacas' => $vacas, 'toros' => $toros]);
+        return view('toretes.toretes_create',[
+            'vacas' => $vacas, 
+            'toros' => $toros,
+            'tipoAnimal' => $tipoAnimal
+        ]);
         
     }
 
@@ -67,25 +66,32 @@ class ToretesController extends Controller
             $imgTorete         = $request->file('img_torete');
             $destinationPath = public_path('uploads\toretes');
             $imgTorete->move($destinationPath, $nameTorete);
+
+            Toretes::where('id',$Toretes->id)->update([
+                'img_torete'       => $nameTorete
+            ]);
         }
         if($request->hasFile('img_padre_torete') ){
             $nameTorete_padre  = $Toretes->id.'_'.time().'_'.$request->num_registro_papa.'.jpg';
             $imgPadre        = $request->file('img_padre_torete');
             $destinationPath = public_path('uploads\toretes');
             $imgPadre->move($destinationPath, $nameTorete_padre);
+
+            Toretes::where('id',$Toretes->id)->update([
+                'img_padre_torete' => $nameTorete_padre
+            ]);
         }
         if ($request->hasFile('img_madre_torete')) {
             $nameTorete_madre  = $Toretes->id.'_'.time().'_'.time().$request->num_registro_mama.'.jpg'; 
             $imgMadre        = $request->file('img_madre_toretes');
             $destinationPath = public_path('uploads\toretes');
             $imgMadre->move($destinationPath, $nameTorete_madre);
+
+             Toretes::where('id',$Toretes->id)->update([
+                'img_madre_torete' => $nameTorete_madre,
+            ]);
         }
 
-        Toretes::where('id',$Toretes->id)->update([
-            'img_torete'       => $nameTorete,
-            'img_padre_torete' => $nameTorete_padre,
-            'img_madre_torete' => $nameTorete_madre,
-        ]);
         return redirect()->route('toretes.index')->with('success','Registro creado satisfactoriamente');
     }
 
@@ -112,11 +118,15 @@ class ToretesController extends Controller
     {
         //
         $toretes = Toretes::find($id);
-
         $tipoAnimal = TipoAnimal::all();
+        $vacas = Vacas::all();
+        $toros = Toros::all();
 
         return view('toretes.toretes_edit', [
-            'tipoAnimal' => $tipoAnimal, 'toretes' => $toretes
+            'tipoAnimal' => $tipoAnimal, 
+            'toretes'    => $toretes,
+            'vacas'      => $vacas,
+            'toros'      => $toros
         ]);
 
     }

@@ -25,7 +25,7 @@ class BecerrosController extends Controller
     public function index()
     {
         //
-        $becerros = Becerros::orderBy('id','DESC')->paginate(3);
+        $becerros = Becerros::orderBy('id','DESC')->paginate(10);
         return view('becerros.becerros_index',compact('becerros')); 
     }
 
@@ -124,7 +124,7 @@ class BecerrosController extends Controller
             'tipoAnimal' => $tipoAnimal, 
             'becerros'   => $becerros,
             'vacas'      => $vacas,
-            'toros'      => $toros,
+            'toros'      => $toros
         ]);
     }
 

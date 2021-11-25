@@ -11,7 +11,7 @@ class Mautas extends Model implements Auditable
     use AuditableTrait;
 
     protected $guarded   = [];
-    //
+    
     public $timestamps   = false;
     protected $table     = "mautas";
     protected $fillable  = [
@@ -24,9 +24,9 @@ class Mautas extends Model implements Auditable
         'num_registro_papa',
         'num_registro_mama', 
         'tipo_animal_id',
-        'img_toro',
-        'img_padre_toro',
-        'img_madre_toro',
+        'img_mauta',
+        'img_padre_mauta',
+        'img_madre_mauta',
         'vaca_id',
         'toro_id'
     ];

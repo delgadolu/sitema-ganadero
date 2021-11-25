@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Becerras;
+use App\Toros;
+use App\Vacas;
 use App\TipoAnimal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Toros;
-use App\Vacas;
 
 class BecerrasController extends Controller
 {
@@ -24,7 +24,7 @@ class BecerrasController extends Controller
     public function index()
     {
         //
-        $becerras = Becerras::orderBy('id','DESC')->paginate(3);
+        $becerras = Becerras::orderBy('id','DESC')->paginate(10);
         return view('becerras.becerras_index',compact('becerras')); 
     }
 
@@ -36,10 +36,14 @@ class BecerrasController extends Controller
     public function create()
     {
         //
-        $tipoAnimal = TipoAnimal::all();
 
-        return view('becerras.becerras_create', [
-            'tipoAnimal' => $tipoAnimal
+        $tipoAnimal = TipoAnimal::all();
+        $vacas = Vacas::all();
+        $toros = Toros::all();
+        return view('becerras.becerras_create',[
+            'tipoAnimal' => $tipoAnimal,
+            'vacas'      => $vacas, 
+            'toros'      => $toros
         ]);
     }
 
@@ -113,11 +117,15 @@ class BecerrasController extends Controller
     {
         //
         $becerras = Becerras::find($id);
-
         $tipoAnimal = TipoAnimal::all();
+        $vacas = Vacas::all();
+        $toros = Toros::all();
 
         return view('becerras.becerras_edit', [
-            'tipoAnimal' => $tipoAnimal, 'becerras' => $becerras
+            'tipoAnimal' => $tipoAnimal, 
+            'becerras'   => $becerras,
+            'vacas'      => $vacas,
+            'toros'      => $toros
         ]);
     }
 

@@ -81,7 +81,7 @@
                 @foreach($nobillas as $nobilla)  
                 <tr>
                     <td>{{$nobilla->num_registro}}</td>
-                    <td>{{$->fecha_nacim}}</td>
+                    <td>{{$nobilla->fecha_nacim}}</td>
                     <td>{{$nobilla->nombre_nobilla}}</td>
                     <td>{{$nobilla->edad_nobilla}}</td>
                     <td>{{$nobilla->peso_nacim}}</td>
