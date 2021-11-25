@@ -9,7 +9,7 @@ $(document).ready(function() {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Online', 'Offline']
+                data: ['Becerras', 'Becerros']
             },
             grid: {
                 left: '8px',
@@ -37,11 +37,11 @@ $(document).ready(function() {
             yAxis: [{
                     type: 'value',
                     axisLabel: {
-                        formatter: '${value}'
+                        formatter: '{value}'
                     },
                     min: 0,
-                    max: 100000,
-                    interval: 25000,
+                    max: 10,
+                    interval: 1,
                     axisLine: {
                         show: false
                     },
@@ -54,8 +54,8 @@ $(document).ready(function() {
             ],
 
             series: [{
-                    name: 'Online',
-                    data: [35000, 69000, 22500, 60000, 50000, 50000, 30000, 80000, 70000, 60000, 20000, 30005],
+                    name: 'Becerras',
+                    data: [2, 1, 4, 2, 1, 3, 5, 2, 1, 3, 1, 0],
                     label: { show: false, color: '#0168c1' },
                     type: 'bar',
                     barGap: 0,
@@ -64,8 +64,8 @@ $(document).ready(function() {
 
                 },
                 {
-                    name: 'Offline',
-                    data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
+                    name: 'Becerros',
+                    data: [2, 0, 1, 0, 0, 0, 0, 3, 0, 0, 2, 0],
                     label: { show: false, color: '#639' },
                     type: 'bar',
                     color: '#7569b3',
@@ -116,17 +116,17 @@ $(document).ready(function() {
             ],
 
             series: [{
-                    name: 'Sales by Country',
+                    name: 'Animales',
                     type: 'pie',
                     radius: '75%',
                     center: ['50%', '50%'],
                     data: [
-                        { value: 535, name: 'USA' },
-                        { value: 310, name: 'Brazil' },
-                        { value: 234, name: 'France' },
-                        { value: 155, name: 'Germany' },
-                        { value: 130, name: 'UK' },
-                        { value: 348, name: 'India' }
+                        { value: 5, name: 'Toros' },
+                        { value: 3, name: 'Vacas' },
+                        { value: 2, name: 'Novillas' },
+                        { value: 0, name: 'Toretes' },
+                        { value: 2, name: 'Becerros' },
+                        { value: 1, name: 'Becerras' }
                     ],
                     itemStyle: {
                         emphasis: {
